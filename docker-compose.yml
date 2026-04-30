@@ -1,0 +1,28 @@
+version: "3.9"
+
+# ──────────────────────────────────────────────────────────────────────────────
+# Itssafe.in — Standalone Stack
+#
+# ISOLATION STRATEGY (since port 80/443 are already taken by spy-helmet site):
+#   • itssafe-web runs on host port 3001 (internal only, not exposed to internet)
+#   • The EXISTING spy-helmet Nginx will proxy itssafe.in → 127.0.0.1:3001
+#   • This stack is completely separate — existing site is UNTOUCHED
+# ──────────────────────────────────────────────────────────────────────────────
+
+services:
+  itssafe-web:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: itssafe-web
+    restart: unless-stopped
+    ports:
+      # Bind to localhost ONLY — not exposed to the public internet directly
+      # The existing Nginx will proxy to this port
+      - "127.0.0.1:3001:80"
+    networks:
+      - itssafe-net
+
+networks:
+  itssafe-net:
+    driver: bridge
