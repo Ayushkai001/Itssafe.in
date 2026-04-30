@@ -3,10 +3,11 @@ version: "3.9"
 # ──────────────────────────────────────────────────────────────────────────────
 # Itssafe.in — Standalone Stack
 #
-# ISOLATION STRATEGY (since port 80/443 are already taken by spy-helmet site):
-#   • itssafe-web runs on host port 3001 (internal only, not exposed to internet)
-#   • The EXISTING spy-helmet Nginx will proxy itssafe.in → 127.0.0.1:3001
-#   • This stack is completely separate — existing site is UNTOUCHED
+# STRATEGY: itssafe-web joins the SAME Docker network as the existing Nginx
+# container (helmet-frontend). This lets Nginx proxy to it by container name:
+#   proxy_pass http://itssafe-web:80;
+#
+# No host port binding needed. No firewall rules needed. Clean Docker DNS.
 # ──────────────────────────────────────────────────────────────────────────────
 
 services:
@@ -16,13 +17,16 @@ services:
       dockerfile: Dockerfile
     container_name: itssafe-web
     restart: unless-stopped
-    ports:
-      # Bind to localhost ONLY — not exposed to the public internet directly
-      # The existing Nginx will proxy to this port
-      - "127.0.0.1:3001:80"
+    # No ports: exposed to host — traffic comes from the existing Nginx container
+    # via the shared Docker network using container name DNS
     networks:
-      - itssafe-net
+      - helmet-frontend   # Join existing Nginx container's network
+      - itssafe-internal  # Own private network
 
 networks:
-  itssafe-net:
+  helmet-frontend:
+    external: true   # Pre-existing network created by the spy-helmet stack
+    # ⚠️  Replace "helmet-frontend" below with the ACTUAL network name
+    # found by running: docker inspect spy-helmet-root-frontend --format='{{range $k,$v := .NetworkSettings.Networks}}{{$k}}{{"\n"}}{{end}}'
+  itssafe-internal:
     driver: bridge
