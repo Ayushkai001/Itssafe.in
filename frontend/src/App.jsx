@@ -10,17 +10,11 @@ import Navbar from './components/Navbar.jsx';
 // ── Preserved Sections (untouched) ──────────────────────────────────────────
 import Hero from './components/Hero.jsx';
 import Marquee from './components/Marquee.jsx';
-import QuoteStatement from './components/QuoteStatement.jsx';
-import ServicesSection from './components/ServicesSection.jsx';
-import ProductShowcase from './components/ProductShowcase.jsx';
-import Story3D from './components/Story3D.jsx';
-import MissionSection from './components/MissionSection.jsx';
 import TeamCarousel from './components/TeamCarousel.jsx';
 import Footer from './components/Footer.jsx';
 
 // ── New Section 1: Company Showcase ──────────────────────────────────────────
 import CompanyIdentitySection from './components/CompanyIdentitySection.jsx';
-import PartnersSection from './components/PartnersSection.jsx';
 import SuccessStorySection from './components/SuccessStorySection.jsx';
 
 // ── New Section 2: Product Experience ────────────────────────────────────────
@@ -59,10 +53,8 @@ function App() {
     window.lenis = lenis;
 
     // ── Optimized Burn Section Transition ──
-    // Added will-change to improve performance during filter animations
     const burnSections = gsap.utils.toArray('.burn-section');
     burnSections.forEach((section) => {
-      // Set initial styles and hardware acceleration
       gsap.set(section, { 
         willChange: 'filter, transform, opacity',
         transformOrigin: 'center center'
@@ -85,7 +77,6 @@ function App() {
             start: 'top 95%',
             end: 'top 40%',
             scrub: true,
-            // Prevent excessive callbacks
             fastScrollEnd: true,
             preventOverlaps: true,
           },
@@ -101,10 +92,8 @@ function App() {
 
   return (
     <div className="antialiased text-white bg-black selection:bg-[#3FE56C] selection:text-black min-h-screen relative">
-      {/* ── Custom Cursor — preserved ── */}
 
-
-      {/* ── Film Grain Overlay — preserved ── */}
+      {/* ── Film Grain Overlay ── */}
       <div
         className="pointer-events-none fixed inset-0 z-[100] h-full w-full opacity-[0.04]"
         style={{
@@ -113,7 +102,7 @@ function App() {
         }}
       />
 
-      {/* ── ISO 27001 Badge — preserved ── */}
+      {/* ── ISO 27001 Badge ── */}
       <a
         href="https://drive.google.com/file/d/17d763UN_hCj1pfiwkKuEvo-JyF3D8ahF/view"
         target="_blank"
@@ -129,47 +118,19 @@ function App() {
         </span>
       </a>
 
-      {/* ── Navbar — preserved ── */}
       <Navbar />
 
-      {/* ══════════════════════════════════════════════════════════════
-          MAIN — exact section order per JSON spec
-      ══════════════════════════════════════════════════════════════ */}
       <main className="relative z-10 w-full overflow-hidden">
-
-        {/* ── Hero (immediately visible) ── */}
         <Hero />
 
-        {/* ── Marquee (preserved) ── */}
         <div className="burn-section"><Marquee /></div>
 
-        {/* ── QuoteStatement (preserved) ── */}
-        {/* <div className="burn-section"><QuoteStatement /></div> */}
-
-        {/* ── SECTION 1B: Partners Marquee (NEW) ── */}
-        {/* <div className="burn-section"><PartnersSection /></div> */}
-
-        {/* ── SECTION 1C: Success Stories (NEW) ── */}
         <div id="section_1c" className="burn-section"><SuccessStorySection /></div>
-        {/* ── SECTION 1A: Company Identity (NEW) ── */}
+        
         <div id="section_1a" className="burn-section"><CompanyIdentitySection /></div>
 
-        {/* ── ServicesSection (preserved) ── */}
-        {/* <div className="burn-section"><ServicesSection /></div> */}
-
-        {/* ── SECTION 2A: Product Showcase with 3D viewer (original, extended) ── */}
-        {/* <div className="burn-section"><ProductShowcase /></div> */}
-
-        {/* ── SECTION 2C: Cart & Checkout (NEW) ── */}
         <div id="section_2c" className="burn-section"><CheckoutFlow /></div>
 
-        {/* ── Story3D (preserved) ── */}
-        {/* <div className="burn-section"><Story3D /></div> */}
-
-        {/* ── MissionSection (preserved) ── */}
-        {/* <div className="burn-section"><MissionSection /></div> */}
-
-        {/* ── Team Carousel (preserved) ── */}
         <div id="team" className="burn-section">
           <div className="bg-gray-800 py-24 border-t border-white/5 relative z-20">
             <div className="max-w-6xl mx-auto px-6 mb-16 text-center">
@@ -190,7 +151,6 @@ function App() {
           </div>
         </div>
 
-        {/* ── Footer (restored) ── */}
         <div className="burn-section"><Footer /></div>
       </main>
     </div>
