@@ -20,13 +20,11 @@ services:
     # No ports: exposed to host — traffic comes from the existing Nginx container
     # via the shared Docker network using container name DNS
     networks:
-      - helmet-frontend   # Join existing Nginx container's network
-      - itssafe-internal  # Own private network
+      - spy-helmet-root_app-network   # Join existing Nginx container's network
+      - itssafe-internal              # Own private network
 
 networks:
-  helmet-frontend:
-    external: true   # Pre-existing network created by the spy-helmet stack
-    # ⚠️  Replace "helmet-frontend" below with the ACTUAL network name
-    # found by running: docker inspect spy-helmet-root-frontend --format='{{range $k,$v := .NetworkSettings.Networks}}{{$k}}{{"\n"}}{{end}}'
+  spy-helmet-root_app-network:
+    external: true   # Pre-existing network — confirmed from: docker network ls
   itssafe-internal:
     driver: bridge
