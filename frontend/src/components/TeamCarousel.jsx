@@ -2,8 +2,9 @@ import React, { useState, useEffect, useCallback } from 'react';
 import './TeamCarousel.css';
 
 const teamMembers = [
-  { name: "Ayush K", role: "Co-Founder and C.E.O.", brief: "Executive Head with background of Artificial Intelligence and Business Stratgey.", img: "/ayush.png" },
-  { name: "Rajnish K Singh", role: "Co-Founder and C.O.O.", brief: "DGMS Awardee – Safety Innovation in Mining , With Background of Ergonomics and Electronics.", img: "/rajnish.png" },
+  { name: "Ayush Kumar", role: "Founder", brief: "Executive Head with background of Artificial Intelligence.", img: "/ayush.jpg" },
+  { name: "Rajnish Kumar Singh", role: "Founder", brief: "DGMS Awardee: Safety Innovation in Mining, with background of IoT.", img: "/rajnish.jpeg" },
+  { name: "Ashish Kumar", role: "Founder", brief: "Technical Lead with background of System Architecture.", img: "/ashish.png" },
 ];
 
 
