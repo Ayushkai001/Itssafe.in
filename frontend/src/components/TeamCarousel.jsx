@@ -2,8 +2,8 @@ import React, { useState, useEffect, useCallback } from 'react';
 import './TeamCarousel.css';
 
 const teamMembers = [
-  { name: "Alexander Vance", role: "Founder", brief: "Visionary leader with 15+ years in industrial safety tech, driving our mission to eliminate preventable accidents globally.", img: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=800&auto=format&fit=crop&q=80" },
-  { name: "Elena Rostova", role: "Creative Director", brief: "Award-winning designer shaping how humans interface with critical life-saving technology through intuitive, rapid-response UI.", img: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&auto=format&fit=crop&q=80" },
+  { name: "Ayush K", role: "Co-Founder and C.E.O.", brief: "Executive Head with background of Artificial Intelligence and Business Stratgey.", img: "/ayush.png" },
+  { name: "Rajnish K Singh", role: "Co-Founder and C.O.O.", brief: "DGMS Awardee – Safety Innovation in Mining , With Background of Ergonomics and Electronics.", img: "/rajnish.png" },
 ];
 
 
