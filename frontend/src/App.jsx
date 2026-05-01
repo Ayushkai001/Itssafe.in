@@ -111,7 +111,7 @@ function App() {
         className="fixed right-0 top-1/2 -translate-y-1/2 z-40 flex flex-col items-center bg-white text-black px-0.5 md:px-1.5 py-2 md:py-6 select-none shadow-[0_0_20px_rgba(0,0,0,0.5)] cursor-pointer transition-transform duration-300 hover:-translate-x-1 hover:shadow-green-400/40"
       >
         <span
-          className="font-['Space_Grotesk'] font-bold text-[4px] md:text-[10px] uppercase tracking-[0.2em] md:tracking-[0.3em] whitespace-nowrap"
+          className="font-['Space_Grotesk'] font-bold text-[6px] md:text-[10px] uppercase tracking-[0.2em] md:tracking-[0.3em] whitespace-nowrap"
           style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}
         >
           DPIIT<span className="text-green-700 my-3 inline-block">●</span> CERTIFIED
