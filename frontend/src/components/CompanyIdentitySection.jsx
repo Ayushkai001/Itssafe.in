@@ -127,7 +127,7 @@ const CompanyIdentitySection = () => {
         <div className="absolute bottom-[-10%] left-[-10%] w-[600px] h-[600px] bg-[#3FE56C]/[0.05] rounded-full blur-[100px]" />
       </div>
       {/* ═══ BLOCK 3: The Research Manifesto ═══ */}
-      <div className="relative py-32 px-6 md:px-16 lg:px-24 z-10" style={{ backgroundColor: '#f2e8d9' }}>
+      <div className="relative py-16 md:py-32 px-6 md:px-16 lg:px-24 z-10" style={{ backgroundColor: '#f2e8d9' }}>
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col lg:flex-row gap-20 items-center">
 
@@ -167,7 +167,7 @@ const CompanyIdentitySection = () => {
       </div>
 
       {/* ═══ BLOCK 1: The Identity ═══ */}
-      <div id="focus-area" className=" bg-[#ffedbd] relative flex items-center py-24 md:py-32 px-6 md:px-16 lg:px-24 z-10">
+      <div id="focus-area" className="bg-[#ffedbd] relative flex items-center py-16 md:py-32 px-6 md:px-16 lg:px-24 z-10">
         <div ref={headlineRef} className="max-w-7xl mx-auto w-full opacity-0">
 
           <div className="flex flex-col lg:flex-row items-start gap-16 lg:gap-24">
@@ -216,7 +216,7 @@ const CompanyIdentitySection = () => {
       </div>
 
       {/* ═══ BLOCK 2: Strategic Pillars ═══ */}
-      <div ref={pillarsRef} className="relative py-24 px-6 md:px-16 lg:px-24 z-10 border-y border-black/5" style={{ backgroundColor: '#fccb82ff' }}>
+      <div ref={pillarsRef} className="relative py-16 md:py-24 px-6 md:px-16 lg:px-24 z-10 border-y border-black/5" style={{ backgroundColor: '#fccb82ff' }}>
         <div className="max-w-7xl mx-auto">
           <div className="mb-16">
             <h3 className="text-xl font-bold text-[#1B2D6E] uppercase tracking-[0.3em] mb-4">Strategic Focus</h3>

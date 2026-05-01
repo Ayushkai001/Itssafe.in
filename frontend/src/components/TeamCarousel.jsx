@@ -2,9 +2,9 @@ import React, { useState, useEffect, useCallback } from 'react';
 import './TeamCarousel.css';
 
 const teamMembers = [
-  { name: "Ayush Kumar", role: "Founder", brief: "Executive Head with background of Artificial Intelligence.", img: "/ayush.jpg" },
-  { name: "Rajnish Kumar Singh", role: "Founder", brief: "DGMS Awardee: Safety Innovation in Mining, with background of IoT.", img: "/rajnish.jpeg" },
-  { name: "Ashish Kumar", role: "Founder", brief: "Technical Lead with background of System Architecture.", img: "/ashish.png" },
+  { name: "Ayush K", role: "Co-Founder & CEO", brief: "Executive Head with background of Artificial Intelligence and Business Strategy.", img: "/Ayush.jpg", linkedin: "https://www.linkedin.com/in/ayush-k-6a103b322/" },
+  { name: "Rajnish Kumar Singh", role: "Co-Founder & COO", brief: "DGMS Awardee: Safety Innovation in Mining, with background of Electronics and Ergonomics.", img: "/Rajnish.jpeg", linkedin: "https://www.linkedin.com/in/rajnish-kumar-singh-mining/" },
+  { name: "Ashish ", role: "Co-Founder & CTO", brief: "Technical Head with background of Software Engineering and System Architecture .", img: "/Ashish.png", linkedin: "https://www.linkedin.com/in/ashish-kumar-abc789/" },
 ];
 
 
@@ -82,7 +82,8 @@ const TeamCarousel = () => {
         </div>
 
         <div className="tc-controls-section">
-          <div className="flex flex-row gap-8 items-center justify-center hidden md:flex mb-6">
+          {/* Nav arrows — visible on desktop only (touch swipe on mobile) */}
+          <div className="hidden md:flex flex-row gap-8 items-center justify-center mb-6">
             <button className="tc-nav-arrow left" onClick={() => updateCarousel(currentIndex - 1)}>
               <ChevronLeft />
             </button>
@@ -94,7 +95,20 @@ const TeamCarousel = () => {
           <div className="tc-member-info">
             <h2 className="tc-member-name transition-opacity duration-300">{teamMembers[currentIndex].name}</h2>
             <p className="tc-member-role transition-opacity duration-300">{teamMembers[currentIndex].role}</p>
-            <p className="tc-member-brief transition-opacity duration-300 mt-6 text-[#86868b] max-w-sm mx-auto leading-relaxed text-sm md:text-base">{teamMembers[currentIndex].brief}</p>
+            <p className="tc-brief-text transition-opacity duration-300 mt-6 text-[#86868b] max-w-sm mx-auto leading-relaxed text-sm md:text-base">{teamMembers[currentIndex].brief}</p>
+
+            {/* LinkedIn Button */}
+            <a
+              href={teamMembers[currentIndex].linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 mt-6 px-5 py-2.5 rounded-full border border-white/15 text-white/60 hover:text-white hover:border-[#0A66C2]/60 hover:bg-[#0A66C2]/10 transition-all duration-300 text-xs uppercase tracking-[0.2em] font-['Inter']"
+            >
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+              </svg>
+              LinkedIn
+            </a>
           </div>
 
           <div className="tc-dots">
@@ -105,6 +119,16 @@ const TeamCarousel = () => {
                 onClick={() => updateCarousel(i)}
               />
             ))}
+          </div>
+
+          {/* Mobile swipe hint + tap arrows */}
+          <div className="flex md:hidden flex-row gap-10 items-center justify-center mt-2">
+            <button className="tc-nav-arrow left" onClick={() => updateCarousel(currentIndex - 1)}>
+              <ChevronLeft />
+            </button>
+            <button className="tc-nav-arrow right" onClick={() => updateCarousel(currentIndex + 1)}>
+              <ChevronRight />
+            </button>
           </div>
         </div>
 

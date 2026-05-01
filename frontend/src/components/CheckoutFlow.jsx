@@ -82,7 +82,7 @@ export default function CheckoutFlow() {
   return (
     <section
       id="section_2c"
-      className="relative py-32 px-6 md:px-16 lg:px-24 overflow-hidden font-['Inter',sans-serif] text-[#1a1a1a]"
+      className="relative py-20 md:py-32 px-6 md:px-16 lg:px-24 overflow-hidden font-['Inter',sans-serif] text-[#1a1a1a]"
       style={{
         backgroundImage: `url(${checkoutBg})`,
         backgroundSize: 'cover',
@@ -161,9 +161,9 @@ export default function CheckoutFlow() {
             <h3 className="text-2xl font-bold text-[#1B2D6E] mb-2 tracking-tight font-['Space_Grotesk']">Invite Us to implement First</h3>
             <p className="text-[#1a1a1a]/50 text-sm mb-10">Fill out the form and we'll get back to you shortly.</p>
 
-            <form onSubmit={handleCheckout} className="grid grid-cols-3 gap-x-6 gap-y-8">
+            <form onSubmit={handleCheckout} className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-6">
               {/* Full Name */}
-              <div className="col-span-2 md:col-span-1">
+              <div className="col-span-1">
                 <label className="text-[9px] uppercase tracking-[0.4em] text-[#1B2D6E] font-bold mb-3 block ml-1">Full Name</label>
                 <input
                   type="text"
@@ -176,7 +176,7 @@ export default function CheckoutFlow() {
               </div>
 
               {/* Company */}
-              <div className="col-span-2 md:col-span-1">
+              <div className="col-span-1">
                 <label className="text-[9px] uppercase tracking-[0.4em] text-[#1B2D6E] font-bold mb-3 block ml-1">Designation</label>
                 <input
                   type="text"
@@ -189,7 +189,7 @@ export default function CheckoutFlow() {
               </div>
 
               {/* Organization */}
-              <div className="col-span-2 md:col-span-1">
+              <div className="col-span-1">
                 <label className="text-[9px] uppercase tracking-[0.4em] text-[#1B2D6E] font-bold mb-3 block ml-1">Organization</label>
                 <input
                   type="text"
@@ -202,7 +202,7 @@ export default function CheckoutFlow() {
               </div>
 
               {/* Phone */}
-              <div className="col-span-2 md:col-span-1">
+              <div className="col-span-1">
                 <label className="text-[9px] uppercase tracking-[0.4em] text-[#1B2D6E] font-bold mb-3 block ml-1">Phone Number</label>
                 <input
                   type="tel"
@@ -232,7 +232,7 @@ export default function CheckoutFlow() {
                 {errors.industry && <p className="text-red-400 text-[10px] mt-1 ml-2">{errors.industry}</p>}
               </div>
               {/* Work Email */}
-              <div className="col-span-2 md:col-span-1">
+              <div className="col-span-1">
                 <label className="text-[9px] uppercase tracking-[0.4em] text-[#1B2D6E] font-bold mb-3 block ml-1">Email</label>
                 <input
                   type="email"
@@ -245,7 +245,7 @@ export default function CheckoutFlow() {
               </div>
 
               {/* Message */}
-              <div className="col-span-3">
+              <div className="col-span-full">
                 <label className="text-[9px] uppercase tracking-[0.4em] text-[#1B2D6E] font-bold mb-3 block ml-1">Message / Requirements</label>
                 <textarea
                   rows={4}
@@ -259,7 +259,7 @@ export default function CheckoutFlow() {
               <button
                 type="submit"
                 disabled={isLoading}
-                className="col-span-3 mt-2 w-full bg-[#1B2D6E] text-white py-5 rounded-[1.5rem] font-bold text-sm uppercase tracking-[0.3em] shadow-lg hover:shadow-xl hover:bg-[#253b8d] hover:scale-[1.02] transition-all active:scale-[0.98] flex items-center justify-center gap-4"
+                className="col-span-full mt-2 w-full bg-[#1B2D6E] text-white py-5 rounded-[1.5rem] font-bold text-sm uppercase tracking-[0.3em] shadow-lg hover:shadow-xl hover:bg-[#253b8d] hover:scale-[1.02] transition-all active:scale-[0.98] flex items-center justify-center gap-4"
               >
                 {isLoading ? (
                   <div className="w-5 h-5 border-2 border-white/20 border-t-white rounded-full animate-spin" />

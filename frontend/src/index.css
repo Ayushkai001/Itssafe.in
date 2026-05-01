@@ -4,6 +4,13 @@
             --cyan-glow: #06b6d4;
             --deep-void: #030303;
         }
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+        html, body {
+            overflow-x: hidden;
+            max-width: 100%;
+        }
         body {
             background-color: var(--deep-void);
             font-family: 'Inter', sans-serif;

@@ -1,210 +1,312 @@
+/* ── TeamCarousel — Fully Responsive CSS ── */
+
 .tc-container {
     width: 100%;
+    overflow: hidden;
 }
 
 .tc-container * {
-	box-sizing: border-box;
+    box-sizing: border-box;
 }
 
+/* ── DESKTOP: Side-by-side layout ── */
 .tc-main-container {
-	display: flex;
-	width: 100%;
-	max-width: 1200px;
-	height: 80vh;
-	gap: 60px;
-	align-items: center;
-	justify-content: center;
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    height: 80vh;
+    gap: 60px;
+    align-items: center;
+    justify-content: center;
     position: relative;
-    z-index: 30; 
+    z-index: 30;
     margin: 0 auto;
 }
 
 .tc-carousel-section {
-	flex: 1;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .tc-controls-section {
-	flex: 1;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	gap: 40px;
-	padding-left: 40px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    padding-left: 40px;
 }
 
 .tc-carousel-container {
-	width: 100%;
-	max-width: 500px;
-	height: 70vh;
-	position: relative;
-	perspective: 1000px;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
+    width: 100%;
+    max-width: 500px;
+    height: 70vh;
+    position: relative;
+    perspective: 1000px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .tc-carousel-track {
-	width: 450px;
-	height: 100%;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	position: relative;
-	transform-style: preserve-3d;
-	transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    width: 450px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .tc-card {
-	position: absolute;
-	width: 320px;
-	height: 380px;
-	background: white;
-	border-radius: 20px;
-	overflow: hidden;
-	box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-	transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-	cursor: pointer;
+    position: absolute;
+    width: 320px;
+    height: 380px;
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    cursor: pointer;
 }
 
 .tc-card img {
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-	transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .tc-card.center {
-	z-index: 10;
-	transform: scale(1.1) translateZ(0);
+    z-index: 10;
+    transform: scale(1.1) translateZ(0);
 }
 .tc-card.center img { filter: none; }
 
 .tc-card.up-2 {
-	z-index: 1;
-	transform: translateY(-380px) scale(0.8) translateZ(-300px);
-	opacity: 0.7;
+    z-index: 1;
+    transform: translateY(-380px) scale(0.8) translateZ(-300px);
+    opacity: 0.7;
 }
 .tc-card.up-2 img { filter: grayscale(100%); }
 
 .tc-card.up-1 {
-	z-index: 5;
-	transform: translateY(-190px) scale(0.9) translateZ(-100px);
-	opacity: 0.9;
+    z-index: 5;
+    transform: translateY(-190px) scale(0.9) translateZ(-100px);
+    opacity: 0.9;
 }
 .tc-card.up-1 img { filter: grayscale(100%); }
 
 .tc-card.down-1 {
-	z-index: 5;
-	transform: translateY(190px) scale(0.9) translateZ(-100px);
-	opacity: 0.9;
+    z-index: 5;
+    transform: translateY(190px) scale(0.9) translateZ(-100px);
+    opacity: 0.9;
 }
 .tc-card.down-1 img { filter: grayscale(100%); }
 
 .tc-card.down-2 {
-	z-index: 1;
-	transform: translateY(380px) scale(0.8) translateZ(-300px);
-	opacity: 0.7;
+    z-index: 1;
+    transform: translateY(380px) scale(0.8) translateZ(-300px);
+    opacity: 0.7;
 }
 .tc-card.down-2 img { filter: grayscale(100%); }
 
 .tc-card.hidden {
-	opacity: 0;
-	pointer-events: none;
+    opacity: 0;
+    pointer-events: none;
 }
 
 .tc-member-info {
-	text-align: center;
-	margin-top: 20px;
+    text-align: center;
+    margin-top: 20px;
+    padding: 0 16px;
 }
 
 .tc-member-name {
-	color: white; 
-	font-size: 2.5rem;
-	font-weight: 600;
-	margin-bottom: 8px;
-	position: relative;
-	display: inline-block;
-	font-family: 'Space Grotesk', sans-serif;
+    color: white;
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    position: relative;
+    display: inline-block;
+    font-family: 'Space Grotesk', sans-serif;
 }
-.tc-member-name::before, .tc-member-name::after {
-	content: "";
-	position: absolute;
-	top: 100%;
-	width: 80px;
-	height: 2px;
-	background: #3FE56C;
+.tc-member-name::before,
+.tc-member-name::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    width: 60px;
+    height: 2px;
+    background: #1E8449;
 }
-.tc-member-name::before { left: -100px; }
-.tc-member-name::after { right: -100px; }
+.tc-member-name::before { left: -70px; }
+.tc-member-name::after  { right: -70px; }
 
 .tc-member-role {
-	color: #86868b;
-	font-size: 1.2rem;
-	font-weight: 400;
-	opacity: 0.8;
-	text-transform: uppercase;
-	letter-spacing: 0.2em;
-	padding: 5px 0;
-	margin-top: -5px;
-	font-family: 'Inter', sans-serif;
+    color: #86868b;
+    font-size: 1rem;
+    font-weight: 400;
+    opacity: 0.8;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    padding: 5px 0;
+    margin-top: -5px;
+    font-family: 'Inter', sans-serif;
 }
 
 .tc-dots {
-	display: flex;
-	justify-content: center;
-	gap: 12px;
-	margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 30px;
 }
 .tc-dot {
-	width: 12px;
-	height: 12px;
-	border-radius: 50%;
-	background: rgba(255, 255, 255, 0.2);
-	cursor: pointer;
-	transition: all 0.3s ease;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 .tc-dot.active {
-	background: #3FE56C;
-	transform: scale(1.3);
+    background: #1E8449;
+    transform: scale(1.3);
 }
 
 .tc-nav-arrow {
     background: transparent;
-	color: white;
-	width: 80px;
-	height: 80px;
-	border-radius: 50%;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	cursor: pointer;
-	z-index: 20;
-	transition: all 0.3s ease;
-	border: none;
+    color: white;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 20;
+    transition: all 0.3s ease;
+    border: none;
 }
 .tc-nav-arrow:hover {
-	transform: scale(1.1);
+    transform: scale(1.1);
 }
 .tc-nav-arrow img {
-	width: 60px;
-	height: 60px;
-	object-fit: contain;
-	transition: all 0.3s ease;
-    filter: invert(1); 
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    transition: all 0.3s ease;
+    filter: invert(1);
 }
 
-@media (max-width: 768px) {
-    .tc-main-container { flex-direction: column; height: auto; gap: 20px; margin-top: 40px; }
-    .tc-card { width: 280px; height: 320px; }
-    .tc-carousel-track { width: 300px; height: 500px; }
-    .tc-card.up-2 { transform: translateY(-300px) scale(0.8) translateZ(-300px); }
-    .tc-card.up-1 { transform: translateY(-150px) scale(0.9) translateZ(-100px); }
-    .tc-card.down-1 { transform: translateY(150px) scale(0.9) translateZ(-100px); }
-    .tc-card.down-2 { transform: translateY(300px) scale(0.8) translateZ(-300px); }
-    .tc-member-name { font-size: 1.8rem; }
+/* ── TABLET ── */
+@media (max-width: 900px) {
+    .tc-main-container {
+        height: auto;
+        gap: 32px;
+    }
+    .tc-controls-section {
+        padding-left: 20px;
+    }
+    .tc-card {
+        width: 280px;
+        height: 340px;
+    }
+    .tc-carousel-track { width: 300px; height: 480px; }
+    .tc-card.up-2 { transform: translateY(-340px) scale(0.8) translateZ(-300px); }
+    .tc-card.up-1 { transform: translateY(-170px) scale(0.9) translateZ(-100px); }
+    .tc-card.down-1 { transform: translateY(170px) scale(0.9) translateZ(-100px); }
+    .tc-card.down-2 { transform: translateY(340px) scale(0.8) translateZ(-300px); }
+    .tc-member-name { font-size: 2rem; }
+    .tc-member-name::before { left: -50px; }
+    .tc-member-name::after  { right: -50px; }
+}
+
+/* ── MOBILE ── */
+@media (max-width: 640px) {
+    .tc-main-container {
+        flex-direction: column;
+        height: auto;
+        gap: 32px;
+        padding: 0 16px;
+    }
+
+    .tc-carousel-section {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .tc-controls-section {
+        width: 100%;
+        padding-left: 0;
+        align-items: center;
+        gap: 24px;
+    }
+
+    .tc-carousel-container {
+        height: 380px;
+        max-width: 100%;
+    }
+
+    .tc-carousel-track {
+        width: 260px;
+        height: 380px;
+    }
+
+    .tc-card {
+        width: 240px;
+        height: 290px;
+    }
+
+    .tc-card.center {
+        transform: scale(1.05) translateZ(0);
+    }
+
+    .tc-card.up-2 {
+        transform: translateY(-270px) scale(0.75) translateZ(-200px);
+        opacity: 0.4;
+    }
+    .tc-card.up-1 {
+        transform: translateY(-130px) scale(0.88) translateZ(-80px);
+        opacity: 0.75;
+    }
+    .tc-card.down-1 {
+        transform: translateY(130px) scale(0.88) translateZ(-80px);
+        opacity: 0.75;
+    }
+    .tc-card.down-2 {
+        transform: translateY(270px) scale(0.75) translateZ(-200px);
+        opacity: 0.4;
+    }
+
+    .tc-member-name {
+        font-size: 1.6rem;
+    }
+    .tc-member-name::before,
+    .tc-member-name::after {
+        width: 40px;
+    }
+    .tc-member-name::before { left: -48px; }
+    .tc-member-name::after  { right: -48px; }
+
+    .tc-member-role {
+        font-size: 0.75rem;
+        letter-spacing: 0.12em;
+    }
+
+    .tc-nav-arrow {
+        width: 44px;
+        height: 44px;
+    }
+
+    .tc-brief-text {
+        font-size: 0.875rem !important;
+        padding: 0 8px;
+    }
 }
