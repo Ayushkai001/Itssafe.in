@@ -123,9 +123,9 @@ const Hero = () => {
       </div>
 
       {/* ── Typography Layer ── */}
-      <div className="relative z-20 h-full flex flex-col items-center justify-center pointer-events-none px-6">
+      <div className="relative z-20 h-full flex flex-col items-center justify-center pointer-events-none px-4 md:px-6">
         <div
-          className="max-w-6xl w-full text-center rounded-[48px] overflow-hidden py-16 px-8 md:px-16 relative"
+          className="max-w-6xl w-full text-center rounded-[32px] md:rounded-[48px] overflow-hidden py-12 px-4 md:py-16 md:px-16 relative"
           style={{
             background: 'rgba(194, 107, 0, 0)',
             backdropFilter: 'blur(2px) saturate(150%)',
@@ -144,22 +144,22 @@ const Hero = () => {
               transition={{ duration: 1, delay: 0.5 }}
               className="mb-8"
             >
-              <span className="text-[10px] md:text-[14px] font-['Space_Grotesk'] font-bold text-[#FF9933] uppercase tracking-[1em] ml-[1em]">
+              <span className="text-[10px] md:text-[16px] font-['Space_Grotesk'] font-bold text-[#FF9933] uppercase tracking-[0.5em] ml-[0.5em] md:tracking-[1em] md:ml-[1em]">
                 NOW IN BHARAT
               </span>
             </motion.div>
 
             <h1
               className="reveal-text font-['Space_Grotesk'] font-bold text-white leading-[0.8] tracking-tight m-0 p-0"
-              style={{ fontSize: 'clamp(4rem, 15vw, 13rem)' }}
+              style={{ fontSize: 'clamp(2.5rem, 12vw, 13rem)' }}
             >
               ITSSAFE<span className="text-transparent" style={{ WebkitTextStroke: '2px rgba(230, 231, 228, 1)' }}></span>
             </h1>
 
             <div className="reveal-text flex items-center justify-center gap-6 mt-12">
 
-              <p className="font-['Inter'] font-bold text-white/50 text-[9px] md:text-[18px] uppercase tracking-[0.5em]">
-                <span className="text-[10px] md:text-[14px] font-['Space_Grotesk'] font-bold text-[#00D100] uppercase tracking-[1em] ml-[1em]">
+              <p className="font-['Inter'] font-bold text-white/50 text-[12px] md:text-[18px] uppercase tracking-[0.5em]">
+                <span className="text-[10px] md:text-[14px] font-['Space_Grotesk'] font-bold text-[#00D100] uppercase tracking-[0.5em] ml-[0.5em] md:tracking-[1em] md:ml-[1em]">
                   WITH US
                 </span>
               </p>

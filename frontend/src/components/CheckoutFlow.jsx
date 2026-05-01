@@ -133,13 +133,15 @@ export default function CheckoutFlow() {
 
               <h3 className="text-4xl font-bold text-[#1B2D6E] mb-6 tracking-tight font-['Space_Grotesk']">Human Safety Bands</h3>
               <p className="text-[#1a1a1a]/70 text-xl leading-relaxed mb-6 max-w-sm">
-                Next-gen neural safety interface with multi-modal sensor fusion. Built for the extreme.
+                Next-gen neural safety interface with multi-modal sensor fusion. Built for the extreme. Key Features :
               </p>
-              <div className="grid grid-cols-1 gap-4">
+              <div className="grid grid-cols-1 gap-1">
                 {[
                   { l: 'Heart Rate ', v: 'Active ECG' },
-                  { l: 'Gas Logic', v: '99.9% Alert' },
-                  { l: 'Cloud Link', v: 'Low Latency' }
+                  { l: 'Sweat Rate', v: 'Active EDA' },
+                  { l: 'SpO2', v: 'Real-time SpO2' },
+                  { l: 'Smart Alerts', v: 'Instant Notifications' },
+                  { l: 'AI Predictive ', v: 'In Real Time' },
                 ].map((item, i) => (
                   <div key={i} className="flex items-center justify-between p-6 rounded-[2rem] bg-gray-50 border border-black/5 hover:border-[#1B2D6E]/20 transition-all">
                     <span className="text-[8px] uppercase tracking-[0.3em] font-bold text-[#1a1a1a]/50">{item.l}</span>

@@ -29,8 +29,8 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* 4-column grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-24 text-sm font-['Inter']">
+        {/* Links Section */}
+        <div className="flex flex-col md:flex-row gap-12 md:gap-32 mb-24 text-sm font-['Inter']">
           <div>
             <h4 className="text-white font-semibold mb-6 uppercase tracking-[0.2em] text-[11px]">Company</h4>
             <ul className="space-y-4 text-white/40">
@@ -47,15 +47,6 @@ export default function Footer() {
               <li><a href="https://www.linkedin.com/company/itssafe-solutions-pvt-ltd/?viewAsMember=true" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors duration-200">Community</a></li>
               <li><a href="mailto:itssafewithus@itssafe.in?subject=Query" className="hover:text-white transition-colors duration-200">Query</a></li>
               <li><a href="#section_2c" className="hover:text-white transition-colors duration-200">Contact Us</a></li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="text-white font-semibold mb-6 uppercase tracking-[0.2em] text-[11px]">Legal</h4>
-            <ul className="space-y-4 text-white/40">
-              <li><a href="mailto:itssafewithus@itssafe.in?subject=Policy+Inquiry" className="hover:text-white transition-colors duration-200">Our Policy</a></li>
-              <li><a href="mailto:itssafewithus@itssafe.in?subject=Terms+of+Service" className="hover:text-white transition-colors duration-200">Terms of Service</a></li>
-              <li><a href="mailto:itssafewithus@itssafe.in?subject=ISO+Certifications" className="hover:text-white transition-colors duration-200">ISO Certifications</a></li>
-              <li><a href="mailto:itssafewithus@itssafe.in?subject=Security" className="hover:text-white transition-colors duration-200">Security</a></li>
             </ul>
           </div>
         </div>
