@@ -141,7 +141,7 @@ export default function CheckoutFlow() {
                   { l: 'Sweat Rate', v: 'Active EDA' },
                   { l: 'SpO2', v: 'Real-time SpO2' },
                   { l: 'Smart Alerts', v: 'Instant Notifications' },
-                  { l: 'AI Predictive ', v: 'In Real Time' },
+                  { l: 'AI Prediction ', v: 'In Real Time' },
                 ].map((item, i) => (
                   <div key={i} className="flex items-center justify-between p-6 rounded-[2rem] bg-gray-50 border border-black/5 hover:border-[#1B2D6E]/20 transition-all">
                     <span className="text-[8px] uppercase tracking-[0.3em] font-bold text-[#1a1a1a]/50">{item.l}</span>
