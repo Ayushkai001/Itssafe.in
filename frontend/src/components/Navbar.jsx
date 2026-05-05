@@ -118,7 +118,7 @@ const NavMenu = ({ isOpen, onClose }) => {
         <div className="flex items-end justify-between">
           <div>
             <p className="text-[10px] uppercase tracking-[0.4em] text-white/20 mb-1 font-['Inter']">Based In</p>
-            <p className="text-sm text-white/50 font-['Inter']">India · Global Operations</p>
+            <p className="text-sm text-white/50 font-['Inter']">India   </p>
           </div>
           <div className="flex gap-4">
             <a href="https://www.linkedin.com/company/itssafe-solutions" target="_blank" rel="noopener noreferrer" className="text-[11px] uppercase tracking-widest text-white/30 hover:text-[#3FE56C] transition-colors duration-200 font-['Inter']">LinkedIn</a>

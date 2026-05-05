@@ -10,7 +10,6 @@ gsap.registerPlugin(ScrollTrigger);
 const Hero = () => {
   const robotRef = useRef(null);
   const glowRef = useRef(null);
-  const scanRef = useRef(null);
   const containerRef = useRef(null);
 
   useGSAP(() => {
@@ -51,18 +50,6 @@ const Hero = () => {
       yoyo: true,
     });
 
-    // 4. Scan Sweep
-    gsap.fromTo(scanRef.current,
-      { y: '-10%', opacity: 0 },
-      {
-        y: '800%',
-        opacity: 1,
-        duration: 2,
-        ease: 'power2.inOut',
-        repeat: -1,
-      }
-    );
-
   }, { scope: containerRef });
 
   return (
@@ -98,17 +85,6 @@ const Hero = () => {
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] pointer-events-none"
           style={{
             background: 'radial-gradient(circle, rgba(109,184,64,0.12) 0%, rgba(13,126,138,0.08) 30%, transparent 70%)',
-            mixBlendMode: 'screen',
-          }}
-        />
-
-        {/* Scan line - High Intensity Lime */}
-        <div
-          ref={scanRef}
-          className="absolute top-0 left-0 right-0 h-[2px] pointer-events-none"
-          style={{
-            background: 'linear-gradient(90deg, transparent, #6DB840, transparent)',
-            boxShadow: '0 0 20px #6DB840',
             mixBlendMode: 'screen',
           }}
         />
