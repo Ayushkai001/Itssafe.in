@@ -4,9 +4,8 @@ import './TeamCarousel.css';
 const teamMembers = [
   { name: "Ayush K", role: "Co-Founder & CEO", brief: "Executive Head with background of Artificial Intelligence and Business Strategy.", img: "/Ayush.jpg", linkedin: "https://www.linkedin.com/in/ayush-k-6a103b322/" },
   { name: "Rajnish Kumar Singh", role: "Co-Founder & COO", brief: "DGMS Awardee: Safety Innovation in Mining, with background of Electronics and Ergonomics.", img: "/Rajnish.jpeg", linkedin: "https://www.linkedin.com/in/rajnish-kumar-singh-mining/" },
-  { name: "Ashish ", role: "Co-Founder & CTO", brief: "Technical Head with background of Software Engineering and System Architecture .", img: "/Ashish.png", linkedin: "https://www.linkedin.com/in/ashish-kumar-abc789/" },
+  { name: "Ashish", role: "Chief Technology Officer", brief: "Technical Head with background of Software Engineering and System Architecture .", img: "/Ashish.png", linkedin: "https://www.linkedin.com/in/ashish-kumar-abc789/" },
 ];
-
 
 const ChevronLeft = () => (
   <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
