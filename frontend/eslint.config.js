@@ -23,7 +23,8 @@ export default defineConfig([
       },
     },
     rules: {
-      'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],
+      // framer-motion's `m` is only referenced as <m.x> in JSX, which core no-unused-vars can't see.
+      'no-unused-vars': ['error', { varsIgnorePattern: '^(?:[A-Z_]|m$)' }],
     },
   },
 ])
