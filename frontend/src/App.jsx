@@ -1,11 +1,15 @@
 import { LazyMotion, domAnimation } from 'framer-motion';
 import ContactProvider from './components/contact/ContactProvider';
 import Nav from './components/Nav';
+import LocalNav from './components/LocalNav';
 import Hero from './components/Hero';
-import Features from './components/Features';
-import Company from './components/Company';
+import Highlights from './components/Highlights';
+import CloserLook from './components/CloserLook';
+import Physiology from './components/Physiology';
+import Intelligence from './components/Intelligence';
+import Inside from './components/Inside';
 import OurPromise from './components/OurPromise';
-import MadeInIndia from './components/MadeInIndia';
+import Company from './components/Company';
 import Team from './components/Team';
 import Closing from './components/Closing';
 import Footer from './components/Footer';
@@ -19,12 +23,16 @@ export default function App() {
           Skip to content
         </a>
         <Nav />
+        <LocalNav />
         <main id="main" tabIndex={-1} className="outline-none">
+          <Inside />
           <Hero />
-          <Features />
-          <Company />
+          <Highlights />
+          <CloserLook />
+          <Physiology />
+          <Intelligence />
           <OurPromise />
-          <MadeInIndia />
+          <Company />
           <Team />
           <Closing />
         </main>

@@ -1,15 +1,15 @@
 import { useEffect, useState } from 'react';
 import { AnimatePresence, m, useReducedMotion } from 'framer-motion';
-import logo from '../assets/brand/itssafe-logo.webp';
+import logo from '../assets/brand/logo2.png';
 import { useContact } from './contact/context';
 import { EASE, scrollToId } from '../lib/motion';
 
 const LINKS = [
-  { label: 'Warble AI', id: 'top' },
-  { label: 'Features', id: 'features' },
+  // { label: 'Warble AI', id: 'top' },
+  { label: 'Features', id: 'highlights' },
   { label: 'Company', id: 'company' },
-  { label: 'Made in India', id: 'made-in-india' },
-  { label: 'Team', id: 'team' },
+  { label: 'Made in India', id: 'inside' },
+  { label: 'Founders', id: 'team' },
 ];
 
 export default function Nav() {
@@ -65,7 +65,7 @@ export default function Nav() {
       <div className="gnav__bg" aria-hidden="true" />
       <nav className="gnav__bar" aria-label="Global">
         <a href="#top" className="gnav__logo" aria-label="ITSSAFE Solutions — back to top">
-          <img src={logo} alt="" width="120" height="123" />
+          <img src={logo} alt="" width="28" height="24" />
         </a>
 
         <ul className="gnav__links">
@@ -79,9 +79,6 @@ export default function Nav() {
         </ul>
 
         <div className="gnav__end">
-          <button type="button" className="gnav__cta" onClick={openContact}>
-            Get in touch
-          </button>
           <button
             type="button"
             className="gnav__toggle"

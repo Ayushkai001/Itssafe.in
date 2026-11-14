@@ -1,0 +1,50 @@
+/* Layout primitives */
+@layer components {
+  .wrap-wide {
+    width: min(var(--wide), 100% - 2 * var(--gutter));
+    margin-inline: auto;
+  }
+
+  .wrap-text {
+    width: min(var(--text), 100% - 2 * var(--gutter));
+    margin-inline: auto;
+  }
+
+  .br-xl {
+    display: none;
+  }
+
+  @media (max-width: 1279.98px) {
+    :is(.t-hero, .t-h2, .t-quote, .t-tile-title, .sheet__title) {
+      text-wrap: balance;
+    }
+
+    :is(.t-lead, .t-tile-copy, .t-small, .t-subhead, .t-card-copy, .t-statement, .india-feature__copy) {
+      text-wrap: pretty;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .br-xl {
+      display: initial;
+    }
+  }
+
+  .skip-link {
+    position: fixed;
+    top: 8px;
+    left: 8px;
+    z-index: 100;
+    padding: 10px 16px;
+    border-radius: 999px;
+    background: var(--color-action);
+    color: #fff;
+    font-size: 14px;
+    transform: translateY(-150%);
+    transition: transform 0.25s var(--ease-apple);
+  }
+
+  .skip-link:focus-visible {
+    transform: translateY(0);
+  }
+}

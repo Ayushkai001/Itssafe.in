@@ -1,0 +1,127 @@
+/* Promise */
+@layer components {
+  /* ── Promise ────────────────────────────────────────────────────────────── */
+  .promise {
+    background: var(--color-mist);
+    padding-block: 80px 48px;
+    text-align: center;
+  }
+
+  .promise .t-h2 {
+    margin-top: 10px;
+  }
+
+  .promise__grid {
+    display: grid;
+    gap: 12px;
+    width: min(990px, 100% - 2 * var(--gutter));
+    margin: 48px auto 0;
+    text-align: left;
+  }
+
+  .promise-card {
+    display: grid;
+    grid-template-columns: 56px 1fr;
+    column-gap: 18px;
+    align-items: start;
+    padding: 22px 22px 24px;
+    border-radius: 22px;
+    background: #fff;
+    transition:
+      transform 0.5s var(--ease-apple),
+      box-shadow 0.5s var(--ease-apple);
+  }
+
+  .promise-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 40px -18px rgb(0 0 0 / 0.18);
+  }
+
+  .promise-card__icon {
+    display: grid;
+    place-items: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+    background: rgb(34 197 94 / 0.12);
+    color: #16a34a;
+    margin-inline: auto;
+  }
+
+  .promise-card__icon svg {
+    width: 30px;
+    height: 30px;
+  }
+
+  .promise-card__title {
+    margin-top: 2px;
+  }
+
+  .promise-card__copy {
+    margin-top: 6px;
+    color: var(--color-ink-muted);
+  }
+
+  @media (min-width: 560px) {
+    .promise__grid {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .promise-card {
+      display: block;
+      padding: 32px 26px 36px;
+      border-radius: var(--radius-tile);
+    }
+
+    .promise-card__title {
+      margin-top: 30px;
+    }
+
+    .promise-card__copy {
+      margin-top: 10px;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .promise {
+      padding-block: 112px 64px;
+    }
+
+    .promise__grid {
+      margin-top: 64px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .promise__grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .promise {
+      padding-block: 122px 31px;
+    }
+
+    .promise .t-h2 {
+      margin-top: 7.5px;
+    }
+
+    .promise__grid {
+      margin-top: 51px;
+    }
+
+    .promise-card {
+      height: 304px;
+      padding: 40px 30px 0;
+    }
+
+    .promise-card__title {
+      margin-top: 26px;
+    }
+
+    .promise-card__copy {
+      margin-top: 9.5px;
+    }
+  }
+}

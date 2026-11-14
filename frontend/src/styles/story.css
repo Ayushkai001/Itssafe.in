@@ -1,0 +1,212 @@
+/* Statement, Physiology and Predictive intelligence */
+@layer components {
+  .statement {
+    position: relative;
+  }
+
+  .statement--light .statement__tail {
+    color: var(--color-fog);
+  }
+
+  .statement--dark .statement__tail {
+    color: #6e6e73;
+  }
+
+  /* ── Physiology ── */
+  .phys {
+    position: relative;
+    overflow: hidden;
+    padding-block: var(--section-pad);
+    background: #000;
+    color: var(--color-night-ink);
+  }
+
+  .phys__head {
+    text-align: center;
+  }
+
+  .phys__head .t-h2 {
+    margin-top: 10px;
+  }
+
+  .phys__visual {
+    position: relative;
+    width: min(1240px, 100%);
+    margin: 40px auto 0;
+    overflow: hidden;
+    -webkit-mask-image: radial-gradient(ellipse 72% 78% at 38% 50%, #000 52%, transparent 100%);
+    mask-image: radial-gradient(ellipse 72% 78% at 38% 50%, #000 52%, transparent 100%);
+  }
+
+  .phys__frame {
+    position: relative;
+    transform-origin: 35% 45%;
+  }
+
+  .phys__frame img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  /* Outer span: scroll-linked strength. Inner pseudo: a resting heartbeat (~60 bpm). */
+  .phys__pulse {
+    position: absolute;
+    left: 34.6%;
+    top: 44.6%;
+    width: 30%;
+    aspect-ratio: 1;
+    translate: -50% -50%;
+    pointer-events: none;
+    mix-blend-mode: screen;
+  }
+
+  .phys__pulse::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: radial-gradient(
+      closest-side,
+      rgb(255 120 110 / 0.62),
+      rgb(140 255 170 / 0.26) 42%,
+      rgb(140 255 170 / 0.06) 62%,
+      transparent 74%
+    );
+    animation: heartbeat 1s ease-in-out infinite;
+  }
+
+  @keyframes heartbeat {
+    0%,
+    100% {
+      opacity: 0.45;
+      transform: scale(0.86);
+    }
+
+    14% {
+      opacity: 1;
+      transform: scale(1.06);
+    }
+
+    28% {
+      opacity: 0.62;
+      transform: scale(0.93);
+    }
+
+    42% {
+      opacity: 0.88;
+      transform: scale(1.01);
+    }
+
+    70% {
+      opacity: 0.45;
+      transform: scale(0.86);
+    }
+  }
+
+  .phys__statement {
+    margin-top: 56px;
+  }
+
+  .phys__copy {
+    margin-top: 28px;
+    color: var(--color-night-dim);
+  }
+
+  @media (min-width: 768px) {
+    .phys__visual {
+      margin-top: 56px;
+    }
+
+    .phys__statement {
+      margin-top: 72px;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .phys__statement {
+      margin-top: 88px;
+    }
+
+    .phys__copy {
+      margin-top: 36px;
+      max-width: 760px;
+    }
+  }
+
+  /* ── Predictive intelligence: pinned scene ── */
+  .ai {
+    position: relative;
+    height: 130vh;
+    background: #000;
+    color: var(--color-night-ink);
+  }
+
+  .ai__sticky {
+    position: sticky;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    height: 100svh;
+    padding-top: calc(var(--local-h) + 7vh);
+    overflow: hidden;
+    text-align: center;
+  }
+
+  .ai__copy {
+    position: relative;
+    z-index: 2;
+  }
+
+  .ai__copy .t-h2 {
+    margin-top: 10px;
+    /* "Custom-developed" stays whole: on phones the headline shrinks just enough to fit it. */
+    font-size: min(var(--fs-h2), calc((100vw - 2 * var(--gutter)) / 9.3));
+  }
+
+  .ai__lead {
+    margin-top: 14px;
+    color: var(--color-night-dim);
+  }
+
+  .ai__orb {
+    position: relative;
+    width: min(94vw, 64vh, 680px);
+    aspect-ratio: 880 / 912;
+    margin-top: auto;
+    margin-bottom: 1vh;
+  }
+
+  .ai__orb img {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    mix-blend-mode: screen;
+  }
+
+  .ai__halo {
+    position: absolute;
+    inset: 6%;
+    border-radius: 50%;
+    background: radial-gradient(closest-side, rgb(124 92 255 / 0.4), rgb(41 151 255 / 0.16) 58%, transparent 76%);
+    filter: blur(24px);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ai {
+      height: auto;
+    }
+
+    .ai__sticky {
+      position: relative;
+      height: auto;
+      padding-block: var(--section-pad);
+    }
+
+    .ai__orb {
+      margin: 48px 0 0;
+    }
+  }
+}

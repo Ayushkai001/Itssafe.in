@@ -15,14 +15,15 @@ const PILLARS = [
 
 export default function OurPromise() {
   return (
-    <section id="promise" className="promise" aria-labelledby="promise-title">
+    <section id="promise" className="promise" data-theme="light" aria-labelledby="promise-title">
       <div className="wrap-text">
         <Reveal as="p" className="t-eyebrow">
           Our promise
         </Reveal>
         <Reveal as="h2" id="promise-title" className="t-h2" delay={0.06}>
           Prevent. Predict. Protect. <br className="br-xl" />
-          Preserve.
+          Save life at penny amount
+
         </Reveal>
       </div>
 

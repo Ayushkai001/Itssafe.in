@@ -1,0 +1,146 @@
+/* Made in India — the original animation and the four layers */
+@layer components {
+  .inside {
+    padding-block: var(--section-pad);
+    background: #fff;
+    text-align: center;
+  }
+
+  .inside__head .t-h2 {
+    margin-top: 10px;
+  }
+
+  .inside__lead {
+    margin: 16px auto 0;
+    max-width: 800px;
+    color: var(--color-ink-muted);
+  }
+
+  .inside__stage {
+    width: 100%;
+    margin: 40px auto 0;
+  }
+
+  .inside__video {
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+    aspect-ratio: auto;
+  }
+
+  .inside__video video {
+    object-fit: contain;
+  }
+
+  .warble-video {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    background: #fff;
+  }
+
+  .warble-video video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* The stream is limited-range, so its white decodes to #FDFDFD. Lift it to the page's pure
+       white (as Figma displays it) without touching the encoded frames. */
+    filter: brightness(1.008);
+  }
+
+  .video-toggle {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    z-index: 2;
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgb(29 29 31 / 0.55);
+    color: #fff;
+    -webkit-backdrop-filter: blur(12px) saturate(180%);
+    backdrop-filter: blur(12px) saturate(180%);
+    opacity: 0;
+    transition:
+      opacity 0.3s var(--ease-apple),
+      background-color 0.2s var(--ease-apple);
+  }
+
+  .warble-video:hover .video-toggle,
+  .video-toggle:focus-visible,
+  .video-toggle[data-paused="true"] {
+    opacity: 1;
+  }
+
+  .video-toggle:hover {
+    background: rgb(29 29 31 / 0.75);
+  }
+
+  @media (hover: none) {
+    .video-toggle {
+      opacity: 0.85;
+    }
+  }
+
+  .inside__layers {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px 20px;
+    margin-top: 48px;
+    list-style: none;
+    text-align: left;
+  }
+
+  .inside-layer svg {
+    width: 40px;
+    height: 40px;
+    color: var(--color-ember);
+  }
+
+  .inside-layer__title {
+    margin-top: 14px;
+  }
+
+  .inside-layer__copy {
+    margin-top: 6px;
+    color: var(--color-ink-muted);
+    font-size: var(--fs-feature-copy);
+    line-height: 1.4;
+    font-weight: 500;
+  }
+
+  @media (min-width: 768px) {
+    .inside__stage {
+      margin-top: 56px;
+    }
+
+    .inside__layers {
+      margin-top: 64px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .inside__layers {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      width: min(1100px, 100% - 2 * var(--gutter));
+      margin-top: 72px;
+    }
+
+    .inside-layer+.inside-layer {
+      padding-left: 29px;
+      border-left: 1px solid var(--color-fog);
+    }
+
+    .inside-layer__title {
+      margin-top: 28px;
+    }
+
+    .inside-layer__copy {
+      margin-top: 10px;
+    }
+  }
+}

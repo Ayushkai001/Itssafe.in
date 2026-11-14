@@ -1,0 +1,195 @@
+/*
+ * Inter (variable, weights 100–900) — the exact build used in the Figma design,
+ * subset to Latin. SIL Open Font License 1.1, © The Inter Project Authors.
+ */
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/InterVariable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+
+  --color-ink: #1d1d1f;
+  --color-ink-muted: #6e6e73;
+  --color-mist: #f5f5f7;
+  --color-fog: #d2d2d7;
+  --color-ember: #ff6a1a;
+  --color-ember-light: #ff9a5c;
+  --color-ember-soft: #ffede4;
+  --color-action: #0071e3;
+  --color-action-hover: #0077ed;
+  --color-link: #0066cc;
+  --color-night-ink: #f5f5f7;
+  --color-night-muted: #a1a1a6;
+  --color-night-line: #2a2a2d;
+  --color-night-dim: #86868b;
+  --color-night-link: #2997ff;
+  --color-night-surface: #101010;
+  --color-night-card: #1d1d1f;
+
+  --ease-apple: cubic-bezier(0.28, 0.11, 0.32, 1);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+ * Responsive design tokens
+ * XS < 375 · S ≥ 375 · M ≥ 768 · L ≥ 1024 · XL ≥ 1280 (XL = Figma values, 1520 frame)
+ * ───────────────────────────────────────────────────────────────────────────── */
+:root {
+  --nav-h: 48px;
+  --local-h: 48px;
+  --gutter: 16px;
+  --section-pad: 80px;
+  --wide: 1240px;
+  --text: 980px;
+  --radius-tile: 24px;
+
+  /* type: size / line-height / tracking */
+  --fs-hero: clamp(44px, 14.6vw, 64px);
+  --lh-hero: 1.05;
+  --ls-hero: -0.035em;
+
+  --fs-eyebrow: 19px;
+  --fs-lead: 19px;
+  --fs-action: 17px;
+
+  --fs-h2: 34px;
+  --lh-h2: 1.08;
+  --ls-h2: -0.025em;
+
+  --fs-statement: 26px;
+  --lh-statement: 1.15;
+  --ls-statement: -0.022em;
+
+  --fs-quote: 30px;
+  --lh-quote: 1.08;
+  --ls-quote: -0.03em;
+
+  --fs-tile-title: 28px;
+  --lh-tile-title: 1.1;
+  --ls-tile-title: -0.025em;
+  --fs-tile-eyebrow: 15px;
+  --fs-tile-copy: 17px;
+
+  --fs-subhead: 17px;
+  --fs-small: 16px;
+  --fs-card-title: 21px;
+  --fs-card-copy: 15px;
+  --fs-feature-copy: 15px;
+  --fs-name: 21px;
+  --fs-role: 17px;
+
+  /* Apple-style section titles ("Get the highlights.") and gallery captions */
+  --fs-section-title: 32px;
+  --fs-caption: 21px;
+}
+
+@media (min-width: 375px) {
+  :root {
+    --gutter: 22px;
+    --fs-hero: clamp(48px, 14.6vw, 64px);
+    --fs-eyebrow: 21px;
+    --fs-lead: 21px;
+    --fs-h2: 40px;
+    --fs-statement: 30px;
+    --fs-quote: 34px;
+    --fs-tile-title: 30px;
+    --fs-subhead: 19px;
+    --fs-small: 17px;
+    --fs-card-copy: 16px;
+    --fs-name: 24px;
+    --fs-role: 19px;
+  }
+}
+
+@media (min-width: 640px) {
+  :root {
+    --fs-hero: clamp(60px, calc((100vw - 2 * var(--gutter)) / 9.7), 112px);
+    --lh-hero: 1.04;
+    --fs-statement: 36px;
+  }
+}
+
+@media (min-width: 768px) {
+  :root {
+    --nav-h: 44px;
+    --local-h: 52px;
+    --section-pad: 112px;
+    --fs-section-title: 40px;
+    --fs-caption: 24px;
+    --gutter: 32px;
+    --radius-tile: 28px;
+    --fs-eyebrow: 24px;
+    --fs-lead: 24px;
+    --fs-action: 19px;
+    --fs-h2: 56px;
+    --lh-h2: 1.05;
+    --ls-h2: -0.03em;
+    --fs-statement: 44px;
+    --lh-statement: 1.1;
+    --ls-statement: -0.028em;
+    --fs-quote: 38px;
+    --lh-quote: 1.07;
+    --ls-quote: -0.035em;
+    --fs-tile-title: 36px;
+    --lh-tile-title: 1.08;
+    --ls-tile-title: -0.03em;
+    --fs-tile-eyebrow: 17px;
+    --fs-tile-copy: 19px;
+    --fs-card-title: 24px;
+    --fs-card-copy: 17px;
+    --fs-feature-copy: 16px;
+    --fs-name: 21px;
+    --fs-role: 17px;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --fs-section-title: 48px;
+    --fs-caption: 28px;
+    --fs-eyebrow: 26px;
+    --fs-lead: 28px;
+    --fs-action: 21px;
+    --fs-h2: 64px;
+    --fs-statement: 50px;
+    --fs-quote: 44px;
+    --lh-quote: 1.06;
+    --ls-quote: -0.038em;
+    --fs-tile-title: 40px;
+    --fs-tile-copy: 21px;
+    --fs-subhead: 21px;
+    --fs-small: 19px;
+    --fs-card-title: 26px;
+    --fs-name: 26px;
+    --fs-role: 22px;
+  }
+}
+
+@media (min-width: 1280px) {
+  :root {
+    --section-pad: 140px;
+    --fs-section-title: 56px;
+    --gutter: 20px;
+    --ls-hero: -0.038em;
+    --fs-eyebrow: 28px;
+    --fs-lead: 30px;
+    --fs-h2: 72px;
+    --lh-h2: 1.045;
+    --fs-statement: 56px;
+    --ls-statement: -0.031em;
+    --fs-quote: 58px;
+    --fs-tile-title: 46px;
+    --lh-tile-title: 1.07;
+    --fs-subhead: 22px;
+    --fs-card-title: 28px;
+    --fs-card-copy: 18px;
+    --fs-feature-copy: 17px;
+    --fs-name: 28px;
+    --fs-role: 26px;
+  }
+}

@@ -1,0 +1,106 @@
+/* Closing call to action — a dark card on white */
+@layer components {
+  .closing {
+    padding-block: calc(var(--section-pad) * 0.7) var(--section-pad);
+    background: #fff;
+  }
+
+  .closing__card {
+    position: relative;
+    display: grid;
+    overflow: hidden;
+    border-radius: var(--radius-tile);
+    background: #000;
+    color: var(--color-night-ink);
+    isolation: isolate;
+  }
+
+  .closing__copy {
+    position: relative;
+    z-index: 2;
+    padding: 64px 24px 0;
+    text-align: center;
+  }
+
+  .closing__title {
+    margin-top: 8px;
+  }
+
+  .closing__sub {
+    margin-top: 14px;
+    color: var(--color-night-dim);
+  }
+
+  .closing__actions {
+    margin-top: 28px;
+  }
+
+  .closing__visual {
+    position: relative;
+    height: 380px;
+  }
+
+  .closing__visual img {
+    position: absolute;
+    left: 50%;
+    bottom: -24%;
+    width: min(62%, 290px);
+    translate: -50% 0;
+    rotate: -10deg;
+  }
+
+  .closing__aura {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 150%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: radial-gradient(closest-side, rgb(255 106 26 / 0.46), rgb(255 106 26 / 0.12) 50%, transparent 72%);
+    translate: -50% 52%;
+  }
+
+  @media (min-width: 1024px) {
+    .closing__card {
+      grid-template-columns: 1.2fr 0.8fr;
+      min-height: 560px;
+    }
+
+    .closing__copy {
+      align-self: center;
+      padding: 0 0 0 72px;
+      text-align: left;
+    }
+
+    .closing__copy .actions {
+      justify-content: flex-start;
+    }
+
+    .closing__visual {
+      height: auto;
+    }
+
+    .closing__visual img {
+      left: 46%;
+      top: 50%;
+      bottom: auto;
+      width: auto;
+      height: 96%;
+      translate: -50% -50%;
+      rotate: -12deg;
+    }
+
+    .closing__aura {
+      top: 54%;
+      bottom: auto;
+      width: 140%;
+      translate: -50% -50%;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .closing__copy {
+      padding-left: 96px;
+    }
+  }
+}

@@ -3,7 +3,7 @@ import { keepCompounds as k } from '../lib/text';
 
 export default function Company() {
   return (
-    <section id="company" className="company" aria-labelledby="company-title">
+    <section id="company" className="company" data-theme="light" aria-labelledby="company-title">
       <div className="wrap-text company__intro">
         <Reveal as="p" className="t-eyebrow">
           Our focus area
@@ -29,7 +29,7 @@ export default function Company() {
       </div>
 
       <div className="wrap-wide company__cards">
-        <Reveal as="article" y={48} amount={0.25} className="mv-card" aria-labelledby="mission-title">
+        <Reveal as="article" id="mission" y={48} amount={0.25} className="mv-card" aria-labelledby="mission-title">
           <p className="t-tile-eyebrow">Our mission</p>
           <h3 id="mission-title" className="t-quote mv-card__title">
             Prevent today. <span className="mv-card__accent">Protect tomorrow.</span>

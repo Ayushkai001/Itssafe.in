@@ -1,0 +1,146 @@
+/* Company */
+@layer components {
+  /* ── Company (focus + mission/vision) ───────────────────────────────────── */
+  .company {
+    background: #fff;
+    padding-block: 80px var(--gutter);
+  }
+
+  .company__intro {
+    text-align: center;
+  }
+
+  .company__intro .t-h2 {
+    margin-top: 10px;
+  }
+
+  .company__intro .t-lead {
+    margin: 16px auto 0;
+    max-width: 800px;
+    color: var(--color-ink-muted);
+  }
+
+  .company__intro .link {
+    margin-top: 18px;
+  }
+
+  .company__cards {
+    display: grid;
+    gap: 12px;
+    margin-top: 72px;
+  }
+
+  .mv-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 72px 24px;
+    border-radius: var(--radius-tile);
+    background: #000;
+    color: var(--color-night-ink);
+    text-align: center;
+  }
+
+  .mv-card__title {
+    margin-top: 10px;
+  }
+
+  .mv-card__accent {
+    display: block;
+    background: linear-gradient(90deg, var(--color-ember-light), var(--color-ember));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .mv-card__sub {
+    margin-top: 20px;
+    color: var(--color-night-muted);
+  }
+
+  .mv-card__body {
+    margin-top: 20px;
+    max-width: 500px;
+    color: var(--color-night-muted);
+  }
+
+  .mv-card--vision .mv-card__title {
+    max-width: 560px;
+  }
+
+  @media (max-width: 374.98px) {
+    .mv-card {
+      padding: 56px 16px;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .company {
+      padding-top: 112px;
+    }
+
+    .company__cards {
+      margin-top: 112px;
+    }
+
+    .mv-card {
+      padding: 96px 64px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .company__cards {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .mv-card {
+      min-height: 560px;
+      padding: 64px 32px;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .company {
+      padding-block: 122px 32px;
+    }
+
+    .company__intro .t-h2 {
+      margin-top: 7.5px;
+    }
+
+    .company__intro .t-lead {
+      margin-top: 17px;
+      max-width: none;
+    }
+
+    .company__intro .link {
+      margin-top: 20px;
+    }
+
+    .company__cards {
+      margin-top: 170.5px;
+    }
+
+    .mv-card {
+      height: 720px;
+      padding: 0 32px;
+    }
+
+    .mv-card__title {
+      margin-top: 11px;
+    }
+
+    .mv-card__sub {
+      margin-top: 22px;
+    }
+
+    .mv-card__body {
+      margin-top: 24px;
+    }
+
+    .mv-card--vision .mv-card__body {
+      margin-top: 24px;
+    }
+  }
+}

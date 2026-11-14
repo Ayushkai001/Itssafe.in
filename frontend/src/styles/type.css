@@ -1,0 +1,174 @@
+/* Typography and actions */
+@layer components {
+  /* ── Typography ─────────────────────────────────────────────────────────── */
+  .t-hero {
+    font-size: var(--fs-hero);
+    line-height: var(--lh-hero);
+    letter-spacing: var(--ls-hero);
+    font-weight: 700;
+    padding-inline-end: calc(var(--ls-hero) * -1);
+  }
+
+  .t-eyebrow {
+    font-size: var(--fs-eyebrow);
+    line-height: 1.14;
+    font-weight: 600;
+    color: var(--color-ember);
+  }
+
+  .t-lead {
+    font-size: var(--fs-lead);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    font-weight: 500;
+  }
+
+  .t-h2 {
+    font-size: var(--fs-h2);
+    line-height: var(--lh-h2);
+    letter-spacing: var(--ls-h2);
+    font-weight: 700;
+    padding-inline-end: calc(var(--ls-h2) * -1);
+  }
+
+  .t-statement {
+    font-size: var(--fs-statement);
+    line-height: var(--lh-statement);
+    letter-spacing: var(--ls-statement);
+    font-weight: 700;
+  }
+
+  .t-quote {
+    font-size: var(--fs-quote);
+    line-height: var(--lh-quote);
+    letter-spacing: var(--ls-quote);
+    font-weight: 700;
+    padding-inline-end: calc(var(--ls-quote) * -1);
+  }
+
+  .t-tile-eyebrow {
+    font-size: var(--fs-tile-eyebrow);
+    line-height: 1.24;
+    font-weight: 600;
+    color: var(--color-ember);
+  }
+
+  .t-tile-title {
+    font-size: var(--fs-tile-title);
+    line-height: var(--lh-tile-title);
+    letter-spacing: var(--ls-tile-title);
+    font-weight: 700;
+    padding-inline-end: calc(var(--ls-tile-title) * -1);
+  }
+
+  .t-tile-copy {
+    font-size: var(--fs-tile-copy);
+    line-height: 1.3334;
+    font-weight: 500;
+  }
+
+  .t-subhead {
+    font-size: var(--fs-subhead);
+    line-height: 1.3;
+    font-weight: 600;
+  }
+
+  .t-small {
+    font-size: var(--fs-small);
+    line-height: 1.4;
+    font-weight: 500;
+  }
+
+  .t-card-title {
+    font-size: var(--fs-card-title);
+    line-height: 1.14;
+    letter-spacing: -0.02em;
+    font-weight: 700;
+  }
+
+  .t-card-copy {
+    font-size: var(--fs-card-copy);
+    line-height: 1.3334;
+    font-weight: 500;
+  }
+
+  /* ── Actions ────────────────────────────────────────────────────────────── */
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    column-gap: clamp(20px, 2.5vw, 30px);
+    row-gap: 14px;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 0.488em 1.05em;
+    border-radius: 980px;
+    background: var(--color-action);
+    color: #fff;
+    font-size: var(--fs-action);
+    line-height: 1.19;
+    font-weight: 400;
+    white-space: nowrap;
+    transition:
+      background-color 0.2s var(--ease-apple),
+      transform 0.2s var(--ease-apple);
+  }
+
+  .btn:hover {
+    background: var(--color-action-hover);
+  }
+
+  .btn:active {
+    transform: scale(0.97);
+  }
+
+  .link {
+    display: inline-flex;
+    align-items: baseline;
+    color: var(--color-link);
+    font-size: var(--fs-action);
+    line-height: 1.19;
+    font-weight: 400;
+    white-space: nowrap;
+  }
+
+  .link > span:first-child {
+    text-underline-offset: 0.16em;
+    text-decoration-thickness: 1px;
+  }
+
+  .link:hover > span:first-child {
+    text-decoration-line: underline;
+  }
+
+  .link .chev {
+    display: inline-block;
+    white-space: pre;
+    transition: transform 0.3s var(--ease-apple);
+  }
+
+  .link:hover .chev {
+    transform: translateX(3px);
+  }
+
+  /* Apple-style section titles ("Get the highlights.") */
+  .t-section-title {
+    font-size: var(--fs-section-title);
+    line-height: 1.07;
+    letter-spacing: -0.028em;
+    font-weight: 700;
+  }
+
+  /* Links and secondary copy sitting on dark sections */
+  [data-theme="dark"] .link,
+  .closing__card .link {
+    color: var(--color-night-link);
+  }
+}
+

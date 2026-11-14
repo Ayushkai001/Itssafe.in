@@ -1,0 +1,100 @@
+/* Team */
+@layer components {
+  /* ── Team ───────────────────────────────────────────────────────────────── */
+  .team {
+    background: var(--color-mist);
+    padding-block: var(--section-pad);
+    text-align: center;
+  }
+
+  .team__grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    margin-top: 48px;
+    list-style: none;
+  }
+
+  .founder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .founder__portrait {
+    position: relative;
+    width: 190px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    overflow: hidden;
+    background: var(--color-mist);
+    isolation: isolate;
+  }
+
+  .founder__portrait img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s var(--ease-apple);
+  }
+
+  .founder__portrait::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    box-shadow: inset 0 0 0 5px var(--color-ember);
+  }
+
+  .founder:hover .founder__portrait img {
+    transform: scale(1.04);
+  }
+
+  .founder__name {
+    margin-top: 20px;
+    font-size: var(--fs-name);
+    line-height: 1.2;
+    font-weight: 600;
+    letter-spacing: 0.005em;
+  }
+
+  .founder__role {
+    margin-top: 6px;
+    font-size: var(--fs-role);
+    line-height: 1.2;
+    font-weight: 600;
+    color: var(--color-ember);
+  }
+
+  @media (min-width: 640px) {
+    .team__grid {
+      flex-direction: row;
+      justify-content: center;
+      gap: 48px;
+      margin-top: 56px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .team {
+      padding-block: calc(var(--section-pad) * 1.15);
+    }
+
+    .team__grid {
+      gap: 80px;
+      margin-top: 64px;
+    }
+
+    .founder__portrait {
+      width: 230px;
+    }
+
+    .founder__portrait::after {
+      box-shadow: inset 0 0 0 6px var(--color-ember);
+    }
+  }
+}

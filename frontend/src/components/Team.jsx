@@ -1,20 +1,18 @@
 import ayush from '../assets/team/founder-ayush.webp';
 import rajnish from '../assets/team/founder-rajnish.webp';
-import ashish from '../assets/team/founder-ashish.webp';
 import Reveal from './Reveal';
 
 const FOUNDERS = [
-  { name: 'Ayush K', role: 'Co-Founder & CEO', img: ayush },
-  { name: 'Rajnish Kumar Singh', role: 'Co-Founder & COO', img: rajnish },
-  { name: 'Ashish', role: 'Chief Technology Officer', img: ashish },
+  { name: 'Ayush K', role: 'Director & CEO', img: ayush },
+  { name: 'Rajnish Kumar Singh', role: 'Director & COO', img: rajnish },
 ];
 
 export default function Team() {
   return (
-    <section id="team" className="team" aria-labelledby="team-title">
+    <section id="team" className="team" data-theme="light" aria-labelledby="team-title">
       <div className="wrap-wide">
         <Reveal as="h2" id="team-title" className="t-h2">
-          Founding team.
+          Founders.
         </Reveal>
 
         <ul className="team__grid">
