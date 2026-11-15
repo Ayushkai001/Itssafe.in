@@ -1,5 +1,6 @@
 import { LazyMotion, domAnimation } from 'framer-motion';
 import ContactProvider from './components/contact/ContactProvider';
+import Viewer3DProvider from './components/viewer3d/Viewer3DProvider';
 import Nav from './components/Nav';
 import LocalNav from './components/LocalNav';
 import Hero from './components/Hero';
@@ -19,24 +20,26 @@ export default function App() {
     // `strict` guarantees only the lightweight `m` components are used (smaller bundle).
     <LazyMotion features={domAnimation} strict>
       <ContactProvider>
-        <a href="#main" className="skip-link">
-          Skip to content
-        </a>
-        <Nav />
-        <LocalNav />
-        <main id="main" tabIndex={-1} className="outline-none">
-          <Inside />
-          <Hero />
-          <Highlights />
-          <CloserLook />
-          <Physiology />
-          <Intelligence />
-          <OurPromise />
-          <Company />
-          <Team />
-          <Closing />
-        </main>
-        <Footer />
+        <Viewer3DProvider>
+          <a href="#main" className="skip-link">
+            Skip to content
+          </a>
+          <Nav />
+          <LocalNav />
+          <main id="main" tabIndex={-1} className="outline-none">
+            <Inside />
+            <Hero />
+            {/* <Highlights /> */}
+            <CloserLook />
+            <Physiology />
+            <Intelligence />
+            <OurPromise />
+            <Company />
+            <Team />
+            <Closing />
+          </main>
+          <Footer />
+        </Viewer3DProvider>
       </ContactProvider>
     </LazyMotion>
   );

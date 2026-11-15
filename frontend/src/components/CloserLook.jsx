@@ -2,14 +2,23 @@ import { useState } from 'react';
 import band480 from '../assets/warble/hero-band-480.webp';
 import band800 from '../assets/warble/hero-band-800.webp';
 import splash from '../assets/warble/splash-band.webp';
-import led800 from '../assets/warble/status-led-800.webp';
-import led1600 from '../assets/warble/status-led-1600.webp';
+import sensorImg from '../assets/warble/sensor.png';
 import exploded800 from '../assets/warble/exploded-800.webp';
 import exploded1600 from '../assets/warble/exploded-1600.webp';
+import Physiology from '../assets/warble/physiology.png';
+import { useViewer3D } from './viewer3d/context';
 import Reveal from './Reveal';
 import { keepCompounds } from '../lib/text';
 
 const ITEMS = [
+  {
+    id: 'sensors',
+    label: 'Sensors',
+    text: 'Capturing precise, real-time data with our own PCB board for reliable monitoring and prediction.',
+    img: { src: sensorImg, w: 1110, h: 1320 },
+    fit: 'sensor',
+    alt: 'Custom in-house Warble AI PCB board with sensors',
+  },
   {
     id: 'design',
     label: 'Design',
@@ -27,14 +36,6 @@ const ITEMS = [
     alt: 'Warble AI splashing into water',
   },
   {
-    id: 'sensors',
-    label: 'Sensors',
-    text: 'Capturing precise, real-time data for reliable monitoring and prediction.',
-    img: { src: led1600, srcSet: `${led800} 800w, ${led1600} 1600w`, w: 1600, h: 900 },
-    fit: 'wide',
-    alt: 'Close-up of the Warble AI module with its green status light on',
-  },
-  {
     id: 'inside',
     label: 'Inside',
     text: 'Embedded systems, custom-designed PCB boards and proprietary AI architecture, all developed in-house in India.',
@@ -42,18 +43,42 @@ const ITEMS = [
     fit: 'wide',
     alt: 'Exploded view of Warble AI: cover, circuit board and base above the band',
   },
+  {
+    id: 'physiology',
+    label: 'Physiology',
+    text: 'Expert in physiological understanding.',
+    img: { src: Physiology, w: 900, h: 750 },
+    fit: 'wide',
+    alt: 'Physiological signals',
+  },
 ];
 
 /** "Take a closer look." — pick a detail and the product view crossfades to it. */
 export default function CloserLook() {
   const [active, setActive] = useState(0);
+  const { openViewer } = useViewer3D();
 
   return (
     <section id="closer-look" className="cl" data-theme="light" aria-labelledby="cl-title">
       <div className="wrap-wide">
-        <Reveal as="h2" id="cl-title" className="t-section-title">
-          Take a closer look.
-        </Reveal>
+        <div className="cl__head">
+          <Reveal as="h2" id="cl-title" className="t-section-title">
+            Take a closer look.
+          </Reveal>
+          <button
+            type="button"
+            className="v3d-badge-btn v3d-badge-btn--light"
+            onClick={openViewer}
+            aria-label="Inspect Warble AI 3.0 in 3D"
+          >
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+              <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
+              <line x1="12" y1="22.08" x2="12" y2="12" />
+            </svg>
+            <span>360° Inspect in 3D</span>
+          </button>
+        </div>
 
         <Reveal y={48} amount={0.15} className="cl__stage">
           <div className="cl__media">

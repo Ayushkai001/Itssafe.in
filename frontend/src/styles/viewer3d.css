@@ -1,0 +1,336 @@
+/* 3D Model Inspector Modal */
+@layer components {
+  .v3d-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 999;
+    display: grid;
+    place-items: center;
+    padding: 16px;
+  }
+
+  .v3d-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgb(0 0 0 / 0.82);
+    -webkit-backdrop-filter: blur(24px) saturate(160%);
+    backdrop-filter: blur(24px) saturate(160%);
+  }
+
+  .v3d-modal {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    width: min(1120px, 100%);
+    height: min(820px, 92vh);
+    background: #0d0d0f;
+    border: 1px solid rgb(255 255 255 / 0.12);
+    border-radius: 28px;
+    box-shadow: 0 32px 80px -16px rgb(0 0 0 / 0.85);
+    overflow: hidden;
+  }
+
+  /* ── Header ── */
+  .v3d-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 22px 28px;
+    border-bottom: 1px solid rgb(255 255 255 / 0.08);
+  }
+
+  .v3d-header__info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .v3d-pill {
+    display: inline-flex;
+    align-items: center;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-ember);
+  }
+
+  .v3d-title {
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    color: #f5f5f7;
+    margin: 0;
+  }
+
+  .v3d-close {
+    display: grid;
+    place-items: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: rgb(255 255 255 / 0.08);
+    color: #a1a1a6;
+    border: 1px solid rgb(255 255 255 / 0.06);
+    cursor: pointer;
+    transition: background-color 0.2s var(--ease-apple), color 0.2s var(--ease-apple);
+  }
+
+  .v3d-close:hover {
+    background: rgb(255 255 255 / 0.16);
+    color: #ffffff;
+  }
+
+  /* ── Stage ── */
+  .v3d-stage {
+    position: relative;
+    flex: 1;
+    min-height: 0;
+    display: grid;
+    place-items: center;
+    background: radial-gradient(circle at 50% 50%, #151518 0%, #0a0a0c 100%);
+  }
+
+  .v3d-aura {
+    position: absolute;
+    width: min(540px, 80%);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: radial-gradient(
+      closest-side,
+      rgb(255 106 26 / 0.18),
+      rgb(255 154 92 / 0.06) 55%,
+      transparent 80%
+    );
+    filter: blur(48px);
+    pointer-events: none;
+  }
+
+  .v3d-canvas {
+    width: 100%;
+    height: 100%;
+    --poster-color: transparent;
+    cursor: grab;
+  }
+
+  .v3d-canvas:active {
+    cursor: grabbing;
+  }
+
+  /* ── Loader ── */
+  .v3d-loader {
+    position: absolute;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    pointer-events: none;
+  }
+
+  .v3d-spinner {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 3px solid rgb(255 255 255 / 0.12);
+    border-top-color: var(--color-ember);
+    animation: v3d-spin 0.8s linear infinite;
+  }
+
+  .v3d-loader__text {
+    font-size: 13px;
+    color: #a1a1a6;
+  }
+
+  @keyframes v3d-spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  /* ── AR Button inside model-viewer ── */
+  .v3d-ar-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    border-radius: 999px;
+    background: rgb(255 255 255 / 0.12);
+    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgb(255 255 255 / 0.18);
+    color: #f5f5f7;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s var(--ease-apple), transform 0.2s var(--ease-apple);
+  }
+
+  .v3d-ar-btn:hover {
+    background: rgb(255 255 255 / 0.22);
+    transform: translateY(-1px);
+  }
+
+  /* ── Controls Bar ── */
+  .v3d-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 18px 28px 24px;
+    border-top: 1px solid rgb(255 255 255 / 0.08);
+    background: rgb(13 13 15 / 0.8);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+  }
+
+  .v3d-presets {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .v3d-controls__label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: #86868b;
+    margin-right: 4px;
+  }
+
+  .v3d-preset-btn {
+    padding: 7px 16px;
+    border-radius: 999px;
+    background: rgb(255 255 255 / 0.06);
+    border: 1px solid rgb(255 255 255 / 0.1);
+    color: #d2d2d7;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s var(--ease-apple);
+  }
+
+  .v3d-preset-btn:hover {
+    background: rgb(255 255 255 / 0.12);
+    color: #ffffff;
+  }
+
+  .v3d-preset-btn.is-active {
+    background: var(--color-ember);
+    border-color: var(--color-ember);
+    color: #ffffff;
+  }
+
+  .v3d-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .v3d-action-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 7px 15px;
+    border-radius: 999px;
+    background: rgb(255 255 255 / 0.06);
+    border: 1px solid rgb(255 255 255 / 0.1);
+    color: #a1a1a6;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s var(--ease-apple);
+  }
+
+  .v3d-action-btn:hover {
+    background: rgb(255 255 255 / 0.12);
+    color: #ffffff;
+  }
+
+  .v3d-action-btn.is-active {
+    color: var(--color-ember);
+    border-color: rgb(255 106 26 / 0.35);
+  }
+
+  .v3d-tip {
+    font-size: 12px;
+    color: #6e6e73;
+    margin: 0;
+  }
+
+  @media (max-width: 767px) {
+    .v3d-modal {
+      height: 96vh;
+      border-radius: 20px;
+    }
+
+    .v3d-header {
+      padding: 16px 20px;
+    }
+
+    .v3d-title {
+      font-size: 18px;
+    }
+
+    .v3d-controls {
+      padding: 14px 20px 20px;
+      gap: 10px;
+    }
+
+    .v3d-presets {
+      overflow-x: auto;
+      flex-wrap: nowrap;
+      padding-bottom: 4px;
+    }
+
+    .v3d-preset-btn {
+      flex-shrink: 0;
+    }
+  }
+
+  /* Floating Launch Badge / Button on sections */
+  .v3d-badge-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 18px;
+    border-radius: 999px;
+    background: rgb(255 255 255 / 0.08);
+    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px);
+    border: 1px solid rgb(255 255 255 / 0.16);
+    color: #f5f5f7;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.25s var(--ease-apple);
+  }
+
+  .v3d-badge-btn:hover {
+    background: rgb(255 255 255 / 0.16);
+    border-color: var(--color-ember);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -6px rgb(255 106 26 / 0.3);
+  }
+
+  .v3d-badge-btn svg {
+    color: var(--color-ember);
+  }
+
+  .v3d-badge-btn--light {
+    background: rgb(0 0 0 / 0.06);
+    border: 1px solid rgb(0 0 0 / 0.12);
+    color: var(--color-ink);
+  }
+
+  .v3d-badge-btn--light:hover {
+    background: rgb(0 0 0 / 0.1);
+    border-color: var(--color-ember);
+    box-shadow: 0 8px 24px -6px rgb(255 106 26 / 0.2);
+  }
+}
+

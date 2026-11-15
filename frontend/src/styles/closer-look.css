@@ -5,6 +5,14 @@
     background: var(--color-mist);
   }
 
+  .cl__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
   .cl__stage {
     position: relative;
     display: grid;
@@ -45,6 +53,17 @@
 
   .cl__img--splash {
     padding: 8% 14%;
+  }
+
+  .cl__img--sensor {
+    padding: 0;
+    object-fit: contain;
+    filter: drop-shadow(0 16px 32px rgb(0 0 0 / 0.13));
+    transform: scale(0.44);
+  }
+
+  .cl__img--sensor[data-active="true"] {
+    transform: scale(0.42);
   }
 
   .cl__img--wide {
@@ -111,7 +130,7 @@
       opacity 0.35s var(--ease-apple);
   }
 
-  .cl-pill__swap > span {
+  .cl-pill__swap>span {
     min-height: 0;
     overflow: hidden;
   }
