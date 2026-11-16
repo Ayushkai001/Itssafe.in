@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import band480 from '../assets/warble/hero-band-480.webp';
 import band800 from '../assets/warble/hero-band-800.webp';
-import splash from '../assets/warble/splash-band.webp';
+import splash from '../assets/warble/splash-band.png';
 import sensorImg from '../assets/warble/sensor.png';
 import exploded800 from '../assets/warble/exploded-800.webp';
 import exploded1600 from '../assets/warble/exploded-1600.webp';
@@ -11,6 +11,14 @@ import Reveal from './Reveal';
 import { keepCompounds } from '../lib/text';
 
 const ITEMS = [
+  {
+    id: 'physiology',
+    label: 'Physiology',
+    text: 'Expert in physiological understanding.',
+    img: { src: Physiology, w: 1070, h: 908 },
+    fit: 'physiology',
+    alt: 'Physiological signals: ECG, RPW, EMG, and FMG fused monitoring',
+  },
   {
     id: 'sensors',
     label: 'Sensors',
@@ -28,6 +36,14 @@ const ITEMS = [
     alt: 'Warble AI, three-quarter view of the module and orange loop band',
   },
   {
+    id: 'Predictive',
+    label: 'Predictive',
+    text: 'Custom developed AI architecture and model for India and Indians trained over crores of data windows.',
+    img: { src: band800, srcSet: `${band480} 480w, ${band800} 800w`, w: 800, h: 1129 },
+    fit: 'AI',
+    alt: 'AI model trained over crores of data windows ',
+  },
+  {
     id: 'water',
     label: 'Water resistance',
     text: 'Light enough to forget, tough enough to trust. Water-resistant, built for the moments that push back.',
@@ -42,14 +58,6 @@ const ITEMS = [
     img: { src: exploded1600, srcSet: `${exploded800} 800w, ${exploded1600} 1600w`, w: 1600, h: 900 },
     fit: 'wide',
     alt: 'Exploded view of Warble AI: cover, circuit board and base above the band',
-  },
-  {
-    id: 'physiology',
-    label: 'Physiology',
-    text: 'Expert in physiological understanding.',
-    img: { src: Physiology, w: 900, h: 750 },
-    fit: 'wide',
-    alt: 'Physiological signals',
   },
 ];
 

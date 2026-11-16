@@ -66,6 +66,16 @@
     transform: scale(0.42);
   }
 
+  .cl__img--physiology {
+    padding: 0;
+    object-fit: contain;
+    transform: scale(0.52);
+  }
+
+  .cl__img--physiology[data-active="true"] {
+    transform: scale(0.5);
+  }
+
   .cl__img--wide {
     padding: 0;
     object-fit: cover;

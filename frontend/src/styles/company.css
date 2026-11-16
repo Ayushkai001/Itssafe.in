@@ -31,24 +31,42 @@
   }
 
   .mv-card {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     padding: 72px 24px;
     border-radius: var(--radius-tile);
-    background: #000;
-    color: var(--color-night-ink);
+    background:
+      radial-gradient(ellipse 90% 70% at 20% -10%, rgb(0 200 220 / 0.32) 0%, transparent 60%),
+      radial-gradient(ellipse 90% 70% at 80% 110%, rgb(110 215 50 / 0.28) 0%, transparent 60%),
+      linear-gradient(145deg, #023847 0%, #034b4e 48%, #073828 100%);
+    box-shadow:
+      0 20px 50px -15px rgb(2 56 71 / 0.35),
+      inset 0 1px 0 rgb(255 255 255 / 0.16);
+    border: 1px solid rgb(0 214 213 / 0.22);
+    color: #fff;
     text-align: center;
+    overflow: hidden;
+  }
+
+  .mv-card .t-tile-eyebrow {
+    color: #6ee7b7;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    font-size: 13px;
+    font-weight: 700;
   }
 
   .mv-card__title {
     margin-top: 10px;
+    color: #fff;
   }
 
   .mv-card__accent {
     display: block;
-    background: linear-gradient(90deg, var(--color-ember-light), var(--color-ember));
+    background: linear-gradient(90deg, #67e8f9, #a7f3d0);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -56,17 +74,86 @@
 
   .mv-card__sub {
     margin-top: 20px;
-    color: var(--color-night-muted);
+    color: rgb(255 255 255 / 0.88);
   }
 
   .mv-card__body {
     margin-top: 20px;
     max-width: 500px;
-    color: var(--color-night-muted);
+    color: rgb(255 255 255 / 0.78);
+  }
+
+  .mv-card--vision {
+    background:
+      radial-gradient(ellipse 90% 70% at 80% -10%, rgb(110 215 50 / 0.28) 0%, transparent 60%),
+      radial-gradient(ellipse 90% 70% at 20% 110%, rgb(0 200 220 / 0.32) 0%, transparent 60%),
+      linear-gradient(145deg, #073828 0%, #034b4e 52%, #023847 100%);
+    box-shadow:
+      0 20px 50px -15px rgb(7 56 40 / 0.35),
+      inset 0 1px 0 rgb(255 255 255 / 0.16);
+    border: 1px solid rgb(110 215 50 / 0.22);
   }
 
   .mv-card--vision .mv-card__title {
     max-width: 560px;
+  }
+
+  .mv-card > * {
+    position: relative;
+    z-index: 2;
+  }
+
+  .mv-card__watermark {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    overflow: hidden;
+    border-radius: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .mv-card__watermark-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 60%;
+    opacity: 0.16;
+    mix-blend-mode: luminosity;
+    filter: contrast(1.2) brightness(0.9);
+    mask-image: radial-gradient(ellipse 95% 85% at 50% 50%, black 40%, transparent 95%);
+    -webkit-mask-image: radial-gradient(ellipse 95% 85% at 50% 50%, black 40%, transparent 95%);
+    transition: opacity 0.6s var(--ease-apple), transform 0.6s var(--ease-apple);
+    will-change: opacity, transform;
+  }
+
+  .mv-card--vision:hover .mv-card__watermark-img {
+    opacity: 0.25;
+    transform: scale(1.04);
+  }
+
+  .mv-card__watermark-img--mission {
+    width: auto;
+    height: auto;
+    max-width: 82%;
+    max-height: 68%;
+    object-fit: contain;
+    object-position: center center;
+    opacity: 0.22;
+    mix-blend-mode: normal;
+    filter: drop-shadow(0 0 32px rgba(239, 68, 68, 0.45));
+    mask-image: radial-gradient(ellipse 92% 85% at 50% 50%, black 50%, transparent 98%);
+    -webkit-mask-image: radial-gradient(ellipse 92% 85% at 50% 50%, black 50%, transparent 98%);
+    transition: opacity 0.6s var(--ease-apple), transform 0.6s var(--ease-apple), filter 0.6s var(--ease-apple);
+    will-change: opacity, transform, filter;
+  }
+
+  #mission:hover .mv-card__watermark-img--mission {
+    opacity: 0.32;
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 42px rgba(239, 68, 68, 0.65));
   }
 
   @media (max-width: 374.98px) {
@@ -141,6 +228,54 @@
 
     .mv-card--vision .mv-card__body {
       margin-top: 24px;
+    }
+  }
+
+  /* ── DPIIT Certified floating badge (restored from pre-Figma build) ────────── */
+  .dpiit-badge {
+    position: fixed;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 40;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    background: #fff;
+    color: #000;
+    padding: 24px 6px;
+    user-select: none;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    transition: transform 0.3s cubic-bezier(0.28, 0.11, 0.32, 1), box-shadow 0.3s cubic-bezier(0.28, 0.11, 0.32, 1);
+    text-decoration: none;
+  }
+
+  .dpiit-badge:hover {
+    transform: translateY(-50%) translateX(-4px);
+    box-shadow: 0 0 25px rgba(63, 229, 108, 0.4);
+  }
+
+  .dpiit-badge__text {
+    font-family: 'Space Grotesk', var(--font-sans), sans-serif;
+    font-weight: 700;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    white-space: nowrap;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+  }
+
+  .dpiit-badge__dot {
+    color: #15803d;
+    margin-block: 12px;
+    display: inline-block;
+  }
+
+  @media (min-width: 1024px) {
+    .dpiit-badge {
+      display: flex;
     }
   }
 }
