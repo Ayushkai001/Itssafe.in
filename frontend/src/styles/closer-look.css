@@ -76,6 +76,18 @@
     transform: scale(0.5);
   }
 
+  .cl__img--AI {
+    padding: 0;
+    object-fit: contain;
+    border-radius: 20px;
+    filter: drop-shadow(0 14px 28px rgb(0 0 0 / 0.1));
+    transform: scale(0.64);
+  }
+
+  .cl__img--AI[data-active="true"] {
+    transform: scale(0.6);
+  }
+
   .cl__img--wide {
     padding: 0;
     object-fit: cover;

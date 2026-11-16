@@ -9,11 +9,9 @@ const COLUMNS = [
     title: 'Warble AI',
     links: [
       ['Overview', '#top'],
-      ['Highlights', '#highlights'],
       ['Take a closer look', '#closer-look'],
-      ['Physiology', '#physiology'],
-      ['Predictive intelligence', '#intelligence'],
       ['Made in India', '#inside'],
+      ['Get Warble AI', '#meet'],
     ],
   },
   {
@@ -52,7 +50,7 @@ export default function Footer() {
             <img src={logo} alt="" width="120" height="123" loading="lazy" decoding="async" />
           </span>
           <p>
-            <strong>Warble AI</strong> by ITSSAFE Solutions. The health band that never stops watching over you.
+            <strong>Warble AI</strong> by ITsSafe Solutions .The Machine Conscious Health Band.
           </p>
         </div>
 

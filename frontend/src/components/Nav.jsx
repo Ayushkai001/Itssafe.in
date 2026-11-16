@@ -4,12 +4,21 @@ import logo from '../assets/brand/logo2.png';
 import { useContact } from './contact/context';
 import { EASE, scrollToId } from '../lib/motion';
 
+/**
+ * Corporate / Global navigation for ITSSAFE Solutions.
+ * Delineated from the product-specific LocalNav by focusing on enterprise,
+ * technology, company mission, leadership, and official accreditation.
+ */
 const LINKS = [
-  // { label: 'Warble AI', id: 'top' },
-  { label: 'Features', id: 'highlights' },
+  { label: 'Warble AI', id: 'top' },
+  { label: 'Technology', id: 'inside' },
   { label: 'Company', id: 'company' },
-  { label: 'Made in India', id: 'inside' },
-  { label: 'Founders', id: 'team' },
+  { label: 'Leadership', id: 'team' },
+  {
+    label: 'DPIIT Certified',
+    href: 'https://drive.google.com/file/d/17d763UN_hCj1pfiwkKuEvo-JyF3D8ahF/view',
+    external: true,
+  },
 ];
 
 export default function Nav() {
@@ -70,15 +79,30 @@ export default function Nav() {
 
         <ul className="gnav__links">
           {LINKS.map((l) => (
-            <li key={l.id}>
-              <a className="gnav__item" href={`#${l.id}`}>
-                {l.label}
-              </a>
+            <li key={l.label}>
+              {l.external ? (
+                <a
+                  className="gnav__item"
+                  href={l.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="View official DPIIT Recognition Certificate"
+                >
+                  {l.label}
+                </a>
+              ) : (
+                <a className="gnav__item" href={`#${l.id}`}>
+                  {l.label}
+                </a>
+              )}
             </li>
           ))}
         </ul>
 
         <div className="gnav__end">
+          <button type="button" className="gnav__cta" onClick={openContact}>
+            Contact
+          </button>
           <button
             type="button"
             className="gnav__toggle"
@@ -106,14 +130,25 @@ export default function Nav() {
             <ul>
               {LINKS.map((l, i) => (
                 <m.li
-                  key={l.id}
+                  key={l.label}
                   initial={reduce ? false : { opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.45, ease: EASE, delay: 0.06 + i * 0.04 }}
                 >
-                  <a href={`#${l.id}`} onClick={goFromMenu(l.id)}>
-                    {l.label}
-                  </a>
+                  {l.external ? (
+                    <a
+                      href={l.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => setOpen(false)}
+                    >
+                      {l.label}
+                    </a>
+                  ) : (
+                    <a href={`#${l.id}`} onClick={goFromMenu(l.id)}>
+                      {l.label}
+                    </a>
+                  )}
                 </m.li>
               ))}
               <m.li

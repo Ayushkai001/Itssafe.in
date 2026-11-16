@@ -1,127 +1,663 @@
-/* Promise */
+/* "Our Promise" — Highlights-style showcase gallery */
 @layer components {
-  /* ── Promise ────────────────────────────────────────────────────────────── */
   .promise {
-    background: var(--color-mist);
-    padding-block: 80px 48px;
+    position: relative;
+    container-type: inline-size;
+    padding-block: var(--section-pad) calc(var(--section-pad) * 0.72);
+    background: var(--color-night-surface);
+    color: var(--color-night-ink);
+    overflow: hidden;
+  }
+
+  .promise__head {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    margin-inline: auto;
+  }
+
+  .promise__head .t-eyebrow {
+    color: #ff8533;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
     text-align: center;
   }
 
-  .promise .t-h2 {
+  .promise__head .t-section-title {
     margin-top: 10px;
+    color: #fff;
+    text-align: center;
   }
 
-  .promise__grid {
-    display: grid;
-    gap: 12px;
-    width: min(990px, 100% - 2 * var(--gutter));
-    margin: 48px auto 0;
-    text-align: left;
+  .promise__tagline {
+    display: inline-block;
+    color: #34d399;
+    background: linear-gradient(90deg, #34d399 0%, #10b981 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 
+  /* ── Horizontal Scroll Track (Snap Carousel) ────────────────────────── */
+  .promise__track {
+    --edge: max(var(--gutter), (100cqw - var(--wide)) / 2);
+    position: relative;
+    display: flex;
+    gap: 16px;
+    margin-top: 36px;
+    padding-inline: var(--edge);
+    scroll-padding-inline: var(--edge);
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    list-style: none;
+  }
+
+  .promise__track::-webkit-scrollbar {
+    display: none;
+  }
+
+  .promise__track:focus-visible {
+    outline: 2px solid #ff8533;
+    outline-offset: -3px;
+  }
+
+  /* ── Promise Slide Card ─────────────────────────────────────────────── */
   .promise-card {
-    display: grid;
-    grid-template-columns: 56px 1fr;
-    column-gap: 18px;
-    align-items: start;
-    padding: 22px 22px 24px;
-    border-radius: 22px;
-    background: #fff;
+    position: relative;
+    flex: none;
+    width: calc(100cqw - 2 * var(--gutter) - 20px);
+    height: 520px;
+    overflow: hidden;
+    border-radius: var(--radius-tile);
+    background: #0c0c10;
+    border: 1px solid rgb(255 255 255 / 0.1);
+    scroll-snap-align: start;
+    isolation: isolate;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 32px 24px;
     transition:
-      transform 0.5s var(--ease-apple),
-      box-shadow 0.5s var(--ease-apple);
+      transform 0.6s var(--ease-apple),
+      border-color 0.4s var(--ease-apple),
+      box-shadow 0.6s var(--ease-apple);
+    cursor: pointer;
+    user-select: none;
   }
 
   .promise-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 18px 40px -18px rgb(0 0 0 / 0.18);
+    border-color: rgb(255 255 255 / 0.22);
+    box-shadow: 0 24px 60px -20px rgb(0 0 0 / 0.8);
   }
 
-  .promise-card__icon {
+  .promise-card[data-active="true"] {
+    border-color: rgb(255 255 255 / 0.28);
+  }
+
+  /* ── Foreground Caption Typography ──────────────────────────────────── */
+  .promise-card__caption {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .promise-card__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    border-radius: 980px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 18px;
+    width: fit-content;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: transform 0.3s var(--ease-apple);
+  }
+
+  .promise-card:hover .promise-card__badge {
+    transform: translateY(-2px);
+  }
+
+  .promise-card__badge svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .promise-card__badge--prevent {
+    background: rgb(245 158 11 / 0.16);
+    border: 1px solid rgb(245 158 11 / 0.4);
+    color: #fbbf24;
+  }
+
+  .promise-card__badge--predict {
+    background: rgb(6 182 212 / 0.16);
+    border: 1px solid rgb(6 182 212 / 0.4);
+    color: #38bdf8;
+  }
+
+  .promise-card__badge--protect {
+    background: rgb(255 106 26 / 0.16);
+    border: 1px solid rgb(255 106 26 / 0.4);
+    color: #ff9a5c;
+  }
+
+  .promise-card__badge--preserve {
+    background: rgb(16 185 129 / 0.16);
+    border: 1px solid rgb(16 185 129 / 0.4);
+    color: #34d399;
+  }
+
+  .promise-card__lead {
+    color: #fff;
+    font-size: clamp(24px, 4vw, 36px);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+
+  .promise-card__text {
+    margin-top: 14px;
+    color: rgb(255 255 255 / 0.72);
+    font-size: 16px;
+    line-height: 1.5;
+    max-width: 520px;
+    text-wrap: pretty;
+  }
+
+  /* ── Watermark & Ambient Lighting Layer ─────────────────────────────── */
+  .promise-card__watermark {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .promise-card__aura {
+    position: absolute;
+    width: 160%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    filter: blur(40px);
+    opacity: 0.7;
+    transition: transform 1.2s var(--ease-apple), opacity 0.8s var(--ease-apple);
+    will-change: transform, opacity;
+  }
+
+  .promise-card__aura--prevent {
+    background: radial-gradient(closest-side, rgb(245 158 11 / 0.35), rgb(217 119 6 / 0.12) 45%, transparent 75%);
+  }
+
+  .promise-card__aura--predict {
+    background: radial-gradient(closest-side, rgb(6 182 212 / 0.35), rgb(2 132 199 / 0.12) 45%, transparent 75%);
+  }
+
+  .promise-card__aura--protect {
+    background: radial-gradient(closest-side, rgb(255 106 26 / 0.42), rgb(234 88 12 / 0.14) 45%, transparent 75%);
+  }
+
+  .promise-card__aura--preserve {
+    background: radial-gradient(closest-side, rgb(16 185 129 / 0.35), rgb(5 150 105 / 0.12) 45%, transparent 75%);
+  }
+
+  .promise-media {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    object-fit: contain;
+    object-position: center 25%;
+    mix-blend-mode: screen;
+    opacity: 0.65;
+    transition:
+      transform 1.2s var(--ease-apple),
+      opacity 0.8s var(--ease-apple);
+    will-change: transform, opacity;
+    pointer-events: none;
+  }
+
+  .promise-card[data-active="true"] .promise-media {
+    opacity: 0.95;
+    transform: scale(1.04);
+  }
+
+  .promise-card:hover .promise-media {
+    opacity: 1;
+    transform: scale(1.07);
+  }
+
+  /* Prevent Card: Official worker double-exposure graphic */
+  .promise-media--prevent {
+    object-fit: cover;
+    object-position: 72% center;
+    mix-blend-mode: luminosity;
+    opacity: 0.28;
+    filter: contrast(1.22) brightness(0.95);
+    mask-image: radial-gradient(ellipse 95% 85% at 65% 50%, black 45%, transparent 95%);
+    -webkit-mask-image: radial-gradient(ellipse 95% 85% at 65% 50%, black 45%, transparent 95%);
+  }
+
+  .promise-card[data-active="true"] .promise-media--prevent {
+    opacity: 0.44;
+    transform: scale(1.03);
+  }
+
+  .promise-card:hover .promise-media--prevent {
+    opacity: 0.54;
+    transform: scale(1.06);
+  }
+
+  /* Predict Card: Transformer Architecture Diagram with white-to-black blurry transition */
+  .promise-media--predict {
+    object-fit: contain;
+    object-position: center center;
+    mix-blend-mode: luminosity;
+    opacity: 0.35;
+    filter: contrast(1.22) brightness(0.96);
+    mask-image: radial-gradient(ellipse 95% 85% at 50% 50%, black 45%, transparent 95%);
+    -webkit-mask-image: radial-gradient(ellipse 95% 85% at 50% 50%, black 45%, transparent 95%);
+  }
+
+  .promise-card[data-active="true"] .promise-media--predict {
+    opacity: 0.52;
+    transform: scale(1.03);
+  }
+
+  .promise-card:hover .promise-media--predict {
+    opacity: 0.62;
+    transform: scale(1.05);
+  }
+
+  /* Protect Card: Authentic Warble AI Health Band hardware render with 3D tilt */
+  .promise-media--protect {
+    height: 60%;
+    max-height: 290px;
+    top: 5%;
+    bottom: auto;
+    object-fit: contain;
+    object-position: center center;
+    mix-blend-mode: normal;
+    opacity: 0.98;
+    transform: scale(var(--tilt-scale, 1.15));
+    transform-origin: center center;
+    filter: drop-shadow(0 18px 35px rgba(0, 0, 0, 0.8)) drop-shadow(0 0 40px rgba(255, 106, 26, 0.4));
+    transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), filter 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .promise-card[data-active="true"] .promise-media--protect {
+    opacity: 1;
+    filter: drop-shadow(0 24px 48px rgba(0, 0, 0, 0.85)) drop-shadow(0 0 52px rgba(255, 106, 26, 0.52));
+  }
+
+  .promise-card--protect:hover .promise-media--protect {
+    opacity: 1;
+    filter:
+      drop-shadow(0 32px 65px rgba(0, 0, 0, 0.95))
+      drop-shadow(0 0 75px rgba(255, 106, 26, 0.75))
+      drop-shadow(0 0 25px rgba(255, 150, 40, 0.9))
+      brightness(1.12) contrast(1.06);
+  }
+
+  .promise-card[data-active="true"] .promise-card__aura {
+    opacity: 0.95;
+    transform: scale(1.1);
+  }
+
+  /* ── Interactive Progress Controls (Highlights style) ───────────────── */
+  .promise__controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+    margin-top: 32px;
+  }
+
+  .promise-dots {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    height: 56px;
+    padding: 0 14px;
+    border-radius: 980px;
+    background: rgb(40 40 45 / 0.85);
+    border: 1px solid rgb(255 255 255 / 0.12);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    backdrop-filter: blur(20px) saturate(180%);
+    box-shadow: 0 10px 30px -10px rgb(0 0 0 / 0.5);
+  }
+
+  .promise-dot {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    height: 44px;
+    padding: 0 10px;
+    border-radius: 980px;
+    color: rgb(255 255 255 / 0.6);
+    font-size: 13px;
+    font-weight: 600;
+    transition: color 0.3s var(--ease-apple), background-color 0.3s var(--ease-apple);
+    cursor: pointer;
+  }
+
+  .promise-dot:hover {
+    color: #fff;
+    background: rgb(255 255 255 / 0.08);
+  }
+
+  .promise-dot[aria-current="true"] {
+    color: #fff;
+    background: rgb(255 255 255 / 0.14);
+  }
+
+  .promise-dot__track {
+    position: relative;
+    display: block;
+    width: 8px;
+    height: 8px;
+    overflow: hidden;
+    border-radius: 980px;
+    background: rgb(255 255 255 / 0.35);
+    transition: width 0.5s var(--ease-apple), background-color 0.3s var(--ease-apple);
+  }
+
+  .promise-dot[aria-current="true"] .promise-dot__track {
+    width: 32px;
+    background: rgb(255 255 255 / 0.25);
+  }
+
+  .promise-dot__fill {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: #ff8533;
+    transform: scaleX(0);
+    transform-origin: left center;
+  }
+
+  .promise-dot[aria-current="true"] .promise-dot__fill {
+    transform: scaleX(1);
+  }
+
+  .promise-dot[aria-current="true"] .promise-dot__fill[data-running="true"] {
+    animation-name: promise-fill;
+    animation-timing-function: linear;
+    animation-fill-mode: both;
+  }
+
+  @keyframes promise-fill {
+    from {
+      transform: scaleX(0);
+    }
+    to {
+      transform: scaleX(1);
+    }
+  }
+
+  .promise-dot__title {
+    display: none;
+  }
+
+  .promise-play {
     display: grid;
     place-items: center;
     width: 56px;
     height: 56px;
-    border-radius: 16px;
-    background: rgb(34 197 94 / 0.12);
-    color: #16a34a;
-    margin-inline: auto;
+    border-radius: 50%;
+    background: rgb(40 40 45 / 0.85);
+    border: 1px solid rgb(255 255 255 / 0.12);
+    color: #fff;
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    backdrop-filter: blur(20px) saturate(180%);
+    box-shadow: 0 10px 30px -10px rgb(0 0 0 / 0.5);
+    transition: background-color 0.25s var(--ease-apple), transform 0.25s var(--ease-apple);
+    cursor: pointer;
   }
 
-  .promise-card__icon svg {
-    width: 30px;
-    height: 30px;
+  .promise-play:hover {
+    background: rgb(60 60 68 / 0.9);
+    transform: scale(1.05);
   }
 
-  .promise-card__title {
-    margin-top: 2px;
-  }
-
-  .promise-card__copy {
-    margin-top: 6px;
-    color: var(--color-ink-muted);
-  }
-
-  @media (min-width: 560px) {
-    .promise__grid {
-      grid-template-columns: 1fr 1fr;
-    }
-
-    .promise-card {
-      display: block;
-      padding: 32px 26px 36px;
-      border-radius: var(--radius-tile);
-    }
-
-    .promise-card__title {
-      margin-top: 30px;
-    }
-
-    .promise-card__copy {
-      margin-top: 10px;
+  /* ── Responsive Tablet & Desktop Layouts ────────────────────────────── */
+  @media (min-width: 640px) {
+    .promise-dot__title {
+      display: inline-block;
     }
   }
 
   @media (min-width: 768px) {
-    .promise {
-      padding-block: 112px 64px;
+    .promise__track {
+      gap: 20px;
+      margin-top: 48px;
     }
 
-    .promise__grid {
-      margin-top: 64px;
+    .promise-card {
+      width: calc(100cqw - var(--edge) - 96px);
+      height: 540px;
+      padding: 48px 48px;
+      justify-content: center;
+    }
+
+    .promise-card__caption {
+      max-width: 54%;
+      margin-left: auto;
+    }
+
+    .promise-card__lead {
+      font-size: clamp(28px, 3.5vw, 42px);
+    }
+
+    .promise-card__text {
+      font-size: 17px;
+      margin-top: 18px;
+    }
+
+    .promise-media {
+      left: -2%;
+      right: auto;
+      top: 50%;
+      width: auto;
+      height: 115%;
+      max-width: 58%;
+      transform: translateY(-50%);
+      object-fit: contain;
+      object-position: center center;
+      mask-image: radial-gradient(ellipse 90% 85% at 45% 50%, black 50%, transparent 96%);
+      -webkit-mask-image: radial-gradient(ellipse 90% 85% at 45% 50%, black 50%, transparent 96%);
+    }
+
+    .promise-card[data-active="true"] .promise-media {
+      transform: translateY(-50%) scale(1.04);
+    }
+
+    .promise-card:hover .promise-media {
+      transform: translateY(-50%) scale(1.07);
+    }
+
+    .promise-media--prevent {
+      left: 0;
+      right: auto;
+      width: 56%;
+      height: 100%;
+      max-width: none;
+      object-fit: cover;
+      object-position: left center;
+      mix-blend-mode: luminosity;
+      opacity: 0.35;
+      filter: contrast(1.25) brightness(0.95);
+      mask-image: linear-gradient(to right, black 60%, transparent 96%);
+      -webkit-mask-image: linear-gradient(to right, black 60%, transparent 96%);
+    }
+
+    .promise-card[data-active="true"] .promise-media--prevent {
+      opacity: 0.52;
+      transform: translateY(-50%) scale(1.03);
+    }
+
+    .promise-card:hover .promise-media--prevent {
+      opacity: 0.62;
+      transform: translateY(-50%) scale(1.06);
+    }
+
+    /* Predict Section: Only this card has image on the right, content on the left, with blurry white-to-black transition */
+    .promise-card--predict .promise-card__caption {
+      margin-left: 0;
+      margin-right: auto;
+    }
+
+    .promise-media--predict {
+      left: auto;
+      right: 2%;
+      top: 50%;
+      width: 58%;
+      height: 90%;
+      max-width: none;
+      object-fit: contain;
+      object-position: center center;
+      transform-origin: center center;
+      transform: translateY(-50%);
+      mix-blend-mode: luminosity;
+      opacity: 0.44;
+      filter: contrast(1.25) brightness(0.96);
+      mask-image: linear-gradient(to right, transparent 0%, black 25%, black 100%);
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 25%, black 100%);
+    }
+
+    .promise-card[data-active="true"] .promise-media--predict {
+      opacity: 0.6;
+      transform: translateY(-50%) scale(1.02);
+    }
+
+    .promise-card:hover .promise-media--predict {
+      opacity: 0.72;
+      transform: translateY(-50%) scale(1.04);
+    }
+
+    .promise-card--predict .promise-card__aura {
+      left: auto;
+      right: -10%;
+    }
+
+    /* Protect Card on Desktop: Warble Health Band with interactive 3D tilt & balanced center spacing */
+    .promise-card--protect {
+      perspective: 1200px;
+    }
+
+    .promise-card--protect .promise-card__caption {
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: 0;
+    }
+
+    .promise-media--protect {
+      left: 6%;
+      right: auto;
+      top: 50%;
+      width: 36%;
+      height: 92%;
+      max-width: 400px;
+      object-fit: contain;
+      object-position: center center;
+      mix-blend-mode: normal;
+      opacity: 0.98;
+      mask-image: none;
+      -webkit-mask-image: none;
+      perspective: 1000px;
+      transform-style: preserve-3d;
+      transform-origin: center center;
+      transform: perspective(1000px) translateY(-50%) scale(var(--tilt-scale, 1.15)) translateZ(var(--tilt-tz, 0px)) rotateX(var(--tilt-rx, 0deg)) rotateY(var(--tilt-ry, 0deg));
+      filter: drop-shadow(0 22px 48px rgba(0, 0, 0, 0.88)) drop-shadow(0 0 55px rgba(255, 106, 26, 0.45));
+      transition:
+        transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+        filter 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: transform, filter;
+    }
+
+    .promise-card[data-active="true"] .promise-media--protect {
+      opacity: 1;
+    }
+
+    .promise-card--protect:hover .promise-media--protect {
+      opacity: 1;
+      filter:
+        drop-shadow(0 35px 70px rgba(0, 0, 0, 0.95))
+        drop-shadow(0 0 75px rgba(255, 106, 26, 0.75))
+        drop-shadow(0 0 25px rgba(255, 150, 40, 0.9))
+        brightness(1.12) contrast(1.06);
+    }
+
+    .promise-card--protect .promise-card__aura {
+      left: -4%;
+      right: auto;
+    }
+
+    .promise-card__aura {
+      left: -10%;
+      right: auto;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 90%;
     }
   }
 
   @media (min-width: 1024px) {
-    .promise__grid {
-      grid-template-columns: repeat(4, 1fr);
+    .promise-card {
+      height: 560px;
+      padding: 56px 56px;
+    }
+
+    .promise-card__caption {
+      max-width: 500px;
+    }
+
+    .promise-card--protect .promise-card__caption {
+      max-width: 490px;
+      margin-right: 0;
+    }
+
+    .promise-card--protect .promise-media--protect {
+      left: 7%;
+      width: 35%;
     }
   }
 
   @media (min-width: 1280px) {
-    .promise {
-      padding-block: 122px 31px;
-    }
-
-    .promise .t-h2 {
-      margin-top: 7.5px;
-    }
-
-    .promise__grid {
-      margin-top: 51px;
-    }
-
     .promise-card {
-      height: 304px;
-      padding: 40px 30px 0;
+      width: min(1120px, 100cqw - var(--edge) - 120px);
+      height: 580px;
+      padding: 64px 64px;
     }
 
-    .promise-card__title {
-      margin-top: 26px;
+    .promise-card--protect .promise-card__caption {
+      max-width: 500px;
+      margin-right: 0;
     }
 
-    .promise-card__copy {
-      margin-top: 9.5px;
+    .promise-card--protect .promise-media--protect {
+      left: 8%;
+      width: 34%;
+    }
+
+    .promise__track {
+      margin-top: 56px;
+    }
+
+    .promise__controls {
+      margin-top: 36px;
     }
   }
 }

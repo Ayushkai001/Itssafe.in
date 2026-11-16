@@ -31,8 +31,8 @@ export default function App() {
             <Hero />
             {/* <Highlights /> */}
             <CloserLook />
-            <Physiology />
-            <Intelligence />
+            {/* <Physiology />
+            <Intelligence /> */}
             <OurPromise />
             <Company />
             <Team />

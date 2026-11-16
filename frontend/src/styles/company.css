@@ -129,11 +129,12 @@
     will-change: opacity, transform;
   }
 
-  .mv-card--vision:hover .mv-card__watermark-img {
+  .mv-card:hover .mv-card__watermark-img {
     opacity: 0.25;
     transform: scale(1.04);
   }
 
+  .mv-card__watermark-img--graphic,
   .mv-card__watermark-img--mission {
     width: auto;
     height: auto;
@@ -150,7 +151,8 @@
     will-change: opacity, transform, filter;
   }
 
-  #mission:hover .mv-card__watermark-img--mission {
+  .mv-card:hover .mv-card__watermark-img--graphic,
+  .mv-card:hover .mv-card__watermark-img--mission {
     opacity: 0.32;
     transform: scale(1.05);
     filter: drop-shadow(0 0 42px rgba(239, 68, 68, 0.65));

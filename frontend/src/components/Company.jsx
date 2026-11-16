@@ -60,13 +60,13 @@ export default function Company() {
         <Reveal as="article" id="mission" y={48} amount={0.25} className="mv-card" aria-labelledby="mission-title">
           <div className="mv-card__watermark" aria-hidden="true">
             <img
-              src={missionWatermark}
+              src={watermark}
               alt=""
               loading="lazy"
               decoding="async"
-              className="mv-card__watermark-img mv-card__watermark-img--mission"
-              width="936"
-              height="820"
+              className="mv-card__watermark-img"
+              width="872"
+              height="500"
             />
           </div>
           <p className="t-tile-eyebrow">Our mission</p>
@@ -95,13 +95,13 @@ export default function Company() {
         >
           <div className="mv-card__watermark" aria-hidden="true">
             <img
-              src={watermark}
+              src={missionWatermark}
               alt=""
               loading="lazy"
               decoding="async"
-              className="mv-card__watermark-img"
-              width="872"
-              height="500"
+              className="mv-card__watermark-img mv-card__watermark-img--graphic"
+              width="936"
+              height="820"
             />
           </div>
           <p className="t-tile-eyebrow">Our vision</p>

@@ -4,11 +4,15 @@ import { useContact } from './contact/context';
 import { EASE, scrollToId } from '../lib/motion';
 import logo from '../assets/brand/itssafe-logo.webp';
 
+/**
+ * Sticky product navigation bar specifically dedicated to Warble AI.
+ * Focuses on sequential product inspection, hardware features, promise, and acquisition.
+ */
 const LINKS = [
-  { id: 'highlights', label: 'Highlights' },
+  { id: 'top', label: 'Overview' },
   { id: 'closer-look', label: 'Closer look' },
-  { id: 'inside', label: 'Inside' },
-  { id: 'company', label: 'Company' },
+  { id: 'promise', label: 'Our Promise' },
+  { id: 'meet', label: 'Get Warble AI' },
 ];
 
 /**

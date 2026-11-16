@@ -3,7 +3,7 @@ import band480 from '../assets/warble/hero-band-480.webp';
 import band800 from '../assets/warble/hero-band-800.webp';
 import splash from '../assets/warble/splash-band.png';
 import sensorImg from '../assets/warble/sensor.png';
-import exploded800 from '../assets/warble/exploded-800.webp';
+import AI from '../assets/warble/AI.png';
 import exploded1600 from '../assets/warble/exploded-1600.webp';
 import Physiology from '../assets/warble/physiology.png';
 import { useViewer3D } from './viewer3d/context';
@@ -11,6 +11,14 @@ import Reveal from './Reveal';
 import { keepCompounds } from '../lib/text';
 
 const ITEMS = [
+  // {
+  //   id: 'design',
+  //   label: 'Design',
+  //   text: 'Hexagonal-vent loop band in bold orange, with a rugged, minimal case.',
+  //   img: { src: band800, srcSet: `${band480} 480w, ${band800} 800w`, w: 800, h: 1129 },
+  //   fit: 'band',
+  //   alt: 'Warble AI, three-quarter view of the module and orange loop band',
+  // },
   {
     id: 'physiology',
     label: 'Physiology',
@@ -28,18 +36,10 @@ const ITEMS = [
     alt: 'Custom in-house Warble AI PCB board with sensors',
   },
   {
-    id: 'design',
-    label: 'Design',
-    text: 'Hexagonal-vent loop band in bold orange, with a rugged, minimal case.',
-    img: { src: band800, srcSet: `${band480} 480w, ${band800} 800w`, w: 800, h: 1129 },
-    fit: 'band',
-    alt: 'Warble AI, three-quarter view of the module and orange loop band',
-  },
-  {
     id: 'Predictive',
     label: 'Predictive',
     text: 'Custom developed AI architecture and model for India and Indians trained over crores of data windows.',
-    img: { src: band800, srcSet: `${band480} 480w, ${band800} 800w`, w: 800, h: 1129 },
+    img: { src: AI, srcSet: `${AI} 480w, ${AI} 800w`, w: 800, h: 1129 },
     fit: 'AI',
     alt: 'AI model trained over crores of data windows ',
   },
@@ -51,14 +51,14 @@ const ITEMS = [
     fit: 'splash',
     alt: 'Warble AI splashing into water',
   },
-  {
-    id: 'inside',
-    label: 'Inside',
-    text: 'Embedded systems, custom-designed PCB boards and proprietary AI architecture, all developed in-house in India.',
-    img: { src: exploded1600, srcSet: `${exploded800} 800w, ${exploded1600} 1600w`, w: 1600, h: 900 },
-    fit: 'wide',
-    alt: 'Exploded view of Warble AI: cover, circuit board and base above the band',
-  },
+  // {
+  //   id: 'inside',
+  //   label: 'Inside',
+  //   text: 'Embedded systems, custom-designed PCB boards and proprietary AI architecture, all developed in-house in India.',
+  //   img: { src: exploded1600, srcSet: `${exploded800} 800w, ${exploded1600} 1600w`, w: 1600, h: 900 },
+  //   fit: 'wide',
+  //   alt: 'Exploded view of Warble AI: cover, circuit board and base above the band',
+  // },
 ];
 
 /** "Take a closer look." — pick a detail and the product view crossfades to it. */
