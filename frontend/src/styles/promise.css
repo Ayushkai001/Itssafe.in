@@ -263,12 +263,12 @@
   /* Predict Card: Transformer Architecture Diagram with white-to-black blurry transition */
   .promise-media--predict {
     object-fit: contain;
-    object-position: center center;
+    object-position: center 20%;
     mix-blend-mode: luminosity;
     opacity: 0.35;
     filter: contrast(1.22) brightness(0.96);
-    mask-image: radial-gradient(ellipse 95% 85% at 50% 50%, black 45%, transparent 95%);
-    -webkit-mask-image: radial-gradient(ellipse 95% 85% at 50% 50%, black 45%, transparent 95%);
+    mask-image: radial-gradient(ellipse 95% 85% at 50% 38%, black 45%, transparent 95%);
+    -webkit-mask-image: radial-gradient(ellipse 95% 85% at 50% 38%, black 45%, transparent 95%);
   }
 
   .promise-card[data-active="true"] .promise-media--predict {
@@ -519,32 +519,36 @@
       margin-right: auto;
     }
 
+    .promise-card--predict .promise-card__badge {
+      align-self: center;
+      margin-inline: auto;
+    }
+
     .promise-media--predict {
       left: auto;
-      right: 2%;
+      right: 0;
       top: 50%;
-      width: 58%;
-      height: 90%;
+      width: 62%;
+      height: 100%;
       max-width: none;
       object-fit: contain;
-      object-position: center center;
-      transform-origin: center center;
-      transform: translateY(-50%);
+      object-position: right center;
+      transform-origin: right center;
       mix-blend-mode: luminosity;
       opacity: 0.44;
       filter: contrast(1.25) brightness(0.96);
-      mask-image: linear-gradient(to right, transparent 0%, black 25%, black 100%);
-      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 25%, black 100%);
+      mask-image: linear-gradient(to right, transparent 0%, black 28%, black 100%);
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 28%, black 100%);
     }
 
     .promise-card[data-active="true"] .promise-media--predict {
       opacity: 0.6;
-      transform: translateY(-50%) scale(1.02);
+      transform: translateY(-50%) scale(1.03);
     }
 
     .promise-card:hover .promise-media--predict {
       opacity: 0.72;
-      transform: translateY(-50%) scale(1.04);
+      transform: translateY(-50%) scale(1.05);
     }
 
     .promise-card--predict .promise-card__aura {
